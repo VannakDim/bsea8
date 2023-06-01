@@ -204,7 +204,7 @@ class BannerController extends Controller
     public function destroy($id)
     {
         $banner = Banner::find($id);
-        if (count($banner)) {
+        if ($banner) {
             if ($banner->image) {
                 @unlink(get_banner_image_path($banner->image));
             }

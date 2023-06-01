@@ -173,7 +173,7 @@ class AdvertisementController extends Controller {
 
     public function destroy($id) {
         $advertisement = Advertisement::find($id);
-        if (count($advertisement)) {
+        if ($advertisement) {
             if ($advertisement->image) {
                 @unlink(get_advertisement_image_path($advertisement->image));
             }

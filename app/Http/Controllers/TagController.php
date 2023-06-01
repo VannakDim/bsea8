@@ -140,7 +140,7 @@ class TagController extends Controller {
 
 	public function destroy($id) {
 		$tag = Tag::find($id);
-		if (count($tag)) {
+		if ($tag) {
 			//$tag->posts()->detach();
 			$tag->delete();
 			return redirect()->back()->with('message', 'Tag delete successfully.');

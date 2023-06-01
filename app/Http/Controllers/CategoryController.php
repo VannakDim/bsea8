@@ -140,7 +140,7 @@ class CategoryController extends Controller {
 
 	public function destroy($id) {
 		$category = Category::find($id);
-		if (count($category)) {
+		if ($category) {
 			$category->delete();
 			return redirect()->back()->with('message', 'Category delete successfully.');
 		} else {

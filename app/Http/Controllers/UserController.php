@@ -47,7 +47,7 @@ class UserController extends Controller {
 
 	public function destroy($id) {
 		$user = User::find($id);
-		if (count($user)) {
+		if ($user) {
 			if ($user->featured_image) {
 				@unlink(public_path('avatar/' . $user->avatar));
 			}

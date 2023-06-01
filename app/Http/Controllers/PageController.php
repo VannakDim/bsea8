@@ -195,7 +195,7 @@ class PageController extends Controller {
 
 	public function destroy($id) {
 		$page = Page::find($id);
-		if (count($page)) {
+		if ($page) {
 			if ($page->page_featured_image) {
 				@unlink(get_page_featured_image_path($page->page_featured_image));
 			}

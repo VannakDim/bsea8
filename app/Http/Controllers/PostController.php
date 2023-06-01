@@ -272,7 +272,7 @@ class PostController extends Controller {
 
 	public function destroy($id) {
 		$post = Post::find($id);
-		if (count($post)) {
+		if ($post) {
 			//$post->tags()->detach();
 			if ($post->featured_image) {
 				@unlink(get_featured_image_path($post->featured_image));

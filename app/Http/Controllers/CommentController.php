@@ -67,7 +67,7 @@ class CommentController extends Controller {
 
 	public function destroy($id) {
 		$comment = Comment::find($id);
-		if (count($comment)) {
+		if ($comment) {
 			$comment->delete();
 			return redirect()->back()->with('message', 'Comment delete successfully.');
 		} else {

@@ -28,7 +28,7 @@ class SubscriberController extends Controller {
 
 	public function destroy($id) {
 		$subscriber = Subscriber::find($id);
-		if (count($subscriber)) {
+		if ($subscriber) {
 			$subscriber->delete();
 			return redirect()->back()->with('message', 'Subscriber delete successfully.');
 		} else {

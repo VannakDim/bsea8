@@ -169,7 +169,7 @@ class GalleryController extends Controller {
 
 	public function destroy($id) {
 		$gallery = Gallery::find($id);
-		if (count($gallery)) {
+		if ($gallery) {
 			if ($gallery->image) {
 				@unlink(get_gallery_image_path($gallery->image));
 			}
