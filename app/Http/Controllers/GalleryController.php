@@ -48,10 +48,10 @@ class GalleryController extends Controller {
 		$validator = Validator::make($request->all(), [
 			'caption' => 'required|max:250',
 			'publication_status' => 'required',
-			'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240|dimensions:max_width=5000,max_height=3000',
+			'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:20480|dimensions:max_width=7000,max_height=3500',
 		], [
 			'caption.required' => 'Caption is required.',
-			'image.dimensions' => 'Max dimensions 350x600',
+			'image.dimensions' => 'Max dimensions 3500x7000',
 		]);
 
 		if ($validator->passes()) {
@@ -82,7 +82,7 @@ class GalleryController extends Controller {
 		$filename = time() . '.jpg';
 		$location = get_gallery_image_path($filename);
 		// create new image with transparent background color
-		$background = Image::canvas(688, 387);
+		$background = Image::canvas(1280, 720);
 		// read image file and resize it to 200x200
 		$img = Image::make($image);
 		// Image Height
@@ -92,9 +92,9 @@ class GalleryController extends Controller {
 		$x = NULL;
 		$y = NULL;
 		if ($width < $height) {
-			$y = 387;
+			$y = 720;
 		} else {
-			$x = 688;
+			$x = 1280;
 		}
 		//Resize Image
 		$img->resize($x, $y, function ($constraint) {
@@ -120,7 +120,7 @@ class GalleryController extends Controller {
 		$validator = $validator = Validator::make($request->all(), [
 			'caption' => 'required|max:250',
 			'publication_status' => 'required',
-			'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10240|dimensions:max_width=5000,max_height=3000',
+			'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10240|dimensions:max_width=6000,max_height=3500',
 		], [
 			'caption.required' => 'Caption is required.',
 		]);

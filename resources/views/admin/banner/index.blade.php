@@ -95,7 +95,7 @@
 							<span class="text-danger" id="url-error"></span>
 						</div>
 						<div class="form-group">
-							<label for="image">Image</label>
+							<label for="image">Image (1900x535)</label>
 							<input type="file" name="image" id="image" class="form-control">
 							<span class="text-danger" id="image-error"></span>
 						</div>
@@ -232,7 +232,7 @@
 									<span class="text-danger url-error"></span>
 								</div>
 								<div class="form-group">
-									<label for="image">Image</label>
+									<label for="image">Image (1900x535)</label>
 									<input type="file" name="image" id="edit-image" class="form-control">
 									<span class="text-danger image-error"></span>
 								</div>

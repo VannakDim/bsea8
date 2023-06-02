@@ -119,7 +119,7 @@ class PostController extends Controller {
 		$filename = time() . '.' . $image->getClientOriginalExtension();
 		$location = get_featured_image_path($filename);
 		// create new image with transparent background color
-		$background = Image::canvas(688, 387);
+		$background = Image::canvas(1280, 720);
 		// read image file and resize it to 200x200
 		$img = Image::make($image);
 		// Image Height
@@ -129,9 +129,9 @@ class PostController extends Controller {
 		$x = NULL;
 		$y = NULL;
 		if ($width > $height) {
-			$y = 688;
+			$y = 1280;
 		} else {
-			$x = 387;
+			$x = 720;
 		}
 		//Resize Image
 		$img->resize($x, $y, function ($constraint) {
