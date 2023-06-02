@@ -1,7 +1,7 @@
   <footer class="main-footer">
   	<div class="pull-right hidden-xs">
-  		<b>Version</b> 2.4.0
+  		<b>Laravel v</b>{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
   	</div>
-  	<strong>Copyright &copy; 2018 <a href="http://clustercoding.com">ClusterCoding</a>.</strong> All rights
+  	<strong>Copyright &copy; 2023 <a href="https://facebook.com/programmerkonkhmer">កូនខ្មែរ</a>.</strong> All rights
   	reserved.
   </footer>

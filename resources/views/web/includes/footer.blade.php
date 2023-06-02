@@ -73,11 +73,8 @@ hr{
         <div class="row" style="margin-right: -15px; margin-left: -15px;">
             <div class="col-md-12 text-center">
                 <span style="color: #fff; font-size: 13px; margin: 0px; padding: 0px">
-                    Copyright © 2018 <a href="http://clustercoding.com" target="_blank" style="color: #fff">Clustercoding</a>, All rights reserved.
+                    Copyright © 2023 <a href="https://facebook.com/programmerkonkhmer" target="_blank" style="color: #fff">កូនខ្មែរ</a>, All rights reserved.
                 </span>
-            </div>
-            <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
             </div>
             <div class="clearfix"></div>
         </div>
