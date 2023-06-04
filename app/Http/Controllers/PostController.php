@@ -64,7 +64,7 @@ class PostController extends Controller {
 			'post_title' => 'required|string|max:255',
 			'post_slug' => 'required|alpha_dash|min:5|max:150|unique:posts',
 			'post_details' => 'required|string',
-			'featured_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240|dimensions:max_width=10000,max_height=10000',
+			'featured_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:50240|dimensions:max_width=4032,max_height=2268',
 			'youtube_video_url' => 'nullable|max:255|regex:' . $url,
 			'youtube_video_url' => 'nullable|max:255',
 			'publication_status' => 'required',
@@ -73,7 +73,7 @@ class PostController extends Controller {
 			'meta_keywords' => 'required|max:250',
 			'meta_description' => 'required|max:400',
 		], [
-			'featured_image.dimensions' => 'Max dimensions 350x600',
+			'featured_image.dimensions' => 'Max dimensions 2268x4032',
 			'category_id.required' => 'The category field is required.',
 		]);
 
@@ -104,7 +104,7 @@ class PostController extends Controller {
 		if ($request->hasFile('featured_image')) {
 			$image = $request->file('featured_image');
 			$file_name = $this->featured_image($post->id, $image);
-			$this->featured_image_thumbnail($post->id, $image);
+			$file_name = $this->featured_image_thumbnail($post->id, $image);
 			Post::find($post->id)->update(['featured_image' => $file_name]);
 		}
 
@@ -129,9 +129,9 @@ class PostController extends Controller {
 		$x = NULL;
 		$y = NULL;
 		if ($width > $height) {
-			$y = 1280;
+			$y = 720;
 		} else {
-			$x = 720;
+			$x = 1280;
 		}
 		//Resize Image
 		$img->resize($x, $y, function ($constraint) {
@@ -159,9 +159,9 @@ class PostController extends Controller {
 		$x = NULL;
 		$y = NULL;
 		if ($width > $height) {
-			$y = 370;
+			$y = 235;
 		} else {
-			$x = 235;
+			$x = 370;
 		}
 		//Resize Image
 		$img->resize($x, $y, function ($constraint) {

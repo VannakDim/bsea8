@@ -78,7 +78,7 @@ display:block; }
 		<!--<div id="shareNative"></div>-->
 		<div id="shareButton"></div>
 		<div class="single-avatar">
-			<img src="{{ get_featured_image_thumbnail_url($post->featured_image) }}" alt="maro news">
+			<img src="{{ get_featured_image_url($post->featured_image) }}" alt="maro news"> 
 		</div>
 		<div class="single-post-detail">
 			<a title="{{ $post->post_title }}" class="category">{{ $post->post_title }}</a>
