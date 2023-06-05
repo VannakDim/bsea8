@@ -89,7 +89,7 @@
     <!--Facebook Page-->
     @if(!empty($setting->facebook))
     <div class="widget">
-        <div class="fb-page" data-href="{{ $setting->facebook }}" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+        <div class="fb-page" data-href="{{ $setting->facebook }}">
             <blockquote cite="{{ $setting->facebook }}" class="fb-xfbml-parse-ignore">
                 <a href="{{ $setting->facebook }}">{{ $setting->website_title }}</a>
             </blockquote>
