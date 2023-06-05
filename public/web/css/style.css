@@ -440,7 +440,7 @@ ul li ul.dropdown li{
 }
 
 ul li ul.dropdown{
-    width: 200px;
+    width: 150px;
     background: #fff;
     position: absolute;
     z-index: 999;
@@ -448,12 +448,16 @@ ul li ul.dropdown{
 }
 
 ul li:hover ul.dropdown{
+    /* background: #afafaf; */
     display: block;
 }
 .dropdown{
     background: #222;
 }
 
+.dropdown a:hover{
+    background: #bff;
+}
 
 
 nav ul ul li {
