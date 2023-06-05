@@ -13,7 +13,7 @@
         <img src="{{ get_banner_image_url($banner->image) }}" alt="{{ $banner->title }}" class="img-responsive" style="margin-top: 80px;">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="panel panel-info" style="box-shadow: 0 8px 61px -2px rgba(0,0,0,.2);margin-top: -10px;">
                         <div class="panel-body">
                             <h5 class="text-primary banner-text" style="margin-top: 0px; color: #008fd5"><strong>{{ $banner->title }}</strong></h5>
