@@ -8,13 +8,13 @@ Version: 1.0
 ===============================================================
 */
 
-
 /*================================================
  [  START LIST OF Style ]
  ================================================
  
  :: FONTS
  :: COMMON STYLE
+ :: BANNER
  :: HEADER
  :: Current Time
  :: User Login Area
@@ -61,6 +61,11 @@ Version: 1.0
 ===================================*/
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600%7CRoboto:400,500,400italic');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600%7CPoppins:400,500,400italic');
+
+@font-face {
+    font-family: 'Khmer-Muol';
+    src: url("/web/fonts/Kh-Muol.ttf");
+}
 
 /*================================== 
        COMMON STYLE
@@ -370,6 +375,16 @@ a:hover.vk {
 .cat-7{
     background-color: #37cae8;
 }
+
+
+/*--- Banner ---*/
+.banner-text{
+    font-family: "Khmer-Muol";
+    font-size: 1rem;
+}
+
+
+
 /*--- Tabs ---*/
 
 .navbar-header{
@@ -382,7 +397,7 @@ a:hover.vk {
 }
 
 .navbar-header h6{
-    font-family: 'Khmer Os Muol';
+    font-family: 'Khmer-Muol';
     font-size: 16px;
     padding-left: 10px;
     color: #00adf1;
@@ -401,7 +416,6 @@ nav ul li{
 
 nav ul li a{
     display: block;
-    /* padding: 20px 25px; */
     color: #00adf1;
     text-decoration: none;
 }
@@ -945,6 +959,27 @@ label:hover:before {
     float: right;
 }
 /*--- logo area ---*/
+
+@media (max-width: 768px) {
+    .navbar-brand img{
+        width: 0px;
+        visibility: hidden;
+        content: "BSEA CAMBODIA";
+    }
+    .navbar-brand h6{
+        font-size: 10px;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-brand img{
+        width: 70px;
+    }
+    .navbar-brand h6{
+        font-size: 16px;
+    }
+}
+
 .logo-bar {
     float: left;
     width: 100%;

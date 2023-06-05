@@ -10,7 +10,7 @@
         <span class="icon-bar"></span>
       </button>
         <a class="navbar-brand text-center" href="{{ route('homePage') }}">
-          <img src="{{ asset('web/bsea-logo.png') }}" alt="" height="70" width="70">
+          <img src="{{ asset('web/bsea-logo.png') }}" alt="">
             <h6>សមាគមកាបូប ស្បែកជើង និងអេឡិចត្រូនិចកម្ពុជា</br>
             Cambodia's Bags, Shoes and Electronic Association</h6>
       </a>
