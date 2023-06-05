@@ -134,7 +134,9 @@ class WebController extends Controller {
 		$comment = Comment::create([
 			'user_id' => Auth::user()->id,
 			'post_id' => $post_id,
+			'publication_status' => 1,
 			'comment' => Purifier::clean($request->input('comment')),
+
 		]);
 
 		if (!empty($comment->id)) {
@@ -155,6 +157,7 @@ class WebController extends Controller {
 			'user_id' => Auth::user()->id,
 			'parent_comment_id' => $comment_id,
 			'post_id' => $request->input('post_id'),
+			'publication_status' => 1,
 			'comment' => Purifier::clean($request->input('comment')),
 		]);
 
