@@ -383,6 +383,14 @@ a:hover.vk {
     font-size: 1rem;
 }
 
+@media (max-width:768px) {
+    .banner-text{
+        /* font-family: "Khmer-Muol"; */
+        font-size: .7rem;
+        text-align: center;
+    }
+}
+
 
 
 /*--- Tabs ---*/
