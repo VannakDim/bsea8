@@ -973,12 +973,15 @@ label:hover:before {
 /*--- logo area ---*/
 
 @media (max-width: 768px) {
+    .navbar-brand{
+        padding: 0 0 0 10px;
+    }
     .navbar-brand img{
         width: 0px;
         visibility: hidden;
     }
     .navbar-brand h6{
-        font-size: 1rem;
+        font-size: .9rem;
     }
 }
 
