@@ -378,6 +378,10 @@ a:hover.vk {
 
 
 /*--- Banner ---*/
+.panel .panel-body{
+    padding: 10px;
+}
+
 .banner-text{
     /* font-family: "Khmer-Muol"; */
     font-size: 1rem;
