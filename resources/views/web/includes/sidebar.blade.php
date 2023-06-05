@@ -77,6 +77,15 @@
     </div>
     <!--/END NEWSLETTER-->
 
+    <div class="widget newsletter">
+        <h4>
+            <i class="ti-eye"></i>
+            VISITOR:
+        </h4>
+         <a href='https://www.free-counters.org/'>www.Free-Counters.org</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=c038c5c235908f8a05fbb360f4c382fa66d4687b'></script>
+<script type="text/javascript" src="https://freevisitorcounters.com/en/home/counter/1038325/t/5"></script>
+    </div>
+
     <!--Facebook Page-->
     @if(!empty($setting->facebook))
     <div class="widget">
