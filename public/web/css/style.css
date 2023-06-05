@@ -428,26 +428,7 @@ ul li:hover ul.dropdown{
     background: #222;
 }
 
-nav ul ul {
-    /* background: #292727 none repeat scroll 0 0;
-    border-top: 2px solid #007bbd;
-    left: 0;
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-    -ms-opacity: 0;
-    -o-opacity: 0;
-    opacity: 10; */
-    position: absolute;
-    top: 100%;
-    /* visibility: hidden; */
-    /* width: 200px; */
-    z-index: 1;
-    -webkit-box-shadow: 0 0 4px rgba(0,0,0,.29);
-    -moz-box-shadow: 0 0 4px rgba(0,0,0,.29);
-    -ms-box-shadow: 0 0 4px rgba(0,0,0,.29);
-    -o-box-shadow: 0 0 4px rgba(0,0,0,.29);
-    box-shadow: 0 0 4px rgba(0,0,0,.29);
-}
+
 
 nav ul ul li {
     font-weight: 400;
