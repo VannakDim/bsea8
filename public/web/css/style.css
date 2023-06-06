@@ -986,6 +986,7 @@ label:hover:before {
     }
     .navbar-brand h6{
         font-size: 1rem;
+        text-align: left;
     }
 }
 
