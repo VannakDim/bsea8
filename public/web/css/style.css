@@ -985,7 +985,7 @@ label:hover:before {
         visibility: hidden;
     }
     .navbar-brand h6{
-        font-size: .9rem;
+        font-size: 1rem;
     }
 }
 
