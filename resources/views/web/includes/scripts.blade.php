@@ -5,7 +5,7 @@
 <!-- <script type="text/javascript" src="{{ asset('web/js/clock.js') }}"></script> -->
 <script type="text/javascript" src="{{ asset('web/js/jquery.bootstrap.newsbox.min.js') }}"></script>
 <script src="{{ asset('web/js/script.js') }}"></script>
-<!-- <script type="text/javascript" src="{{ asset('web/js/parsley.min.js') }}"></script> -->
+<script type="text/javascript" src="{{ asset('web/js/parsley.min.js') }}"></script>
 
 <script type="text/javascript">
 	/** store subscriber **/

@@ -79,15 +79,13 @@
 			<div class="progress-unit">
 				@foreach($items as $popular_post)
 				<a href="{{ route('detailsPage', $popular_post->post_slug) }}" title="">
-					<div class="col-md-4 col-sm-12">
+					<div class="col-md-4 col-sm-6">
 						<div class="pp-trending-grid">
 							<img src="{{ get_featured_image_thumbnail_url($popular_post->featured_image) }}" alt="maro news">
 							<div class="pp-trend-meta">
-								<h5>
-									<a href="{{ route('detailsPage', $popular_post->post_slug) }}">
-										{{ \Illuminate\Support\Str::limit($popular_post->post_title, 50, '...') }}
-									</a>
-								</h5>
+								<h7>
+									{{ \Illuminate\Support\Str::limit($popular_post->post_title, 50, '...') }}
+								</h7>
 							</div>
 						</div>
 					</div>
