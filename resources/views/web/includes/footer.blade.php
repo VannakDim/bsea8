@@ -18,7 +18,7 @@ hr{
 <div id="footer" style="">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="footer-heading">
                     BSEA Info
                 </div>
@@ -26,7 +26,7 @@ hr{
                 <hr class="hr">
                 <p class="text-justify" style="line-height: 24px; color: #fff; margin: 0 0 10px; font-size: 13px; letter-spacing: 0.09px;">{{ $setting->about_us }}</p>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-4">
                 <div class="footer-heading">
                     Address
                 </div>
