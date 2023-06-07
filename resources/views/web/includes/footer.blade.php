@@ -4,11 +4,12 @@
 .footer-heading {font-size: 18px; font-weight: bold; color: #fff; text-shadow: none;}
 #footer a {
     line-height: 24px;
-    font-size: 13px
+    font-size: 13px;
+    color:#fff;
 }
 #footer-bottom {background: #7e7e7e; color: #969696; padding: 10px 0px; color: #fff;}
-a { color:#fff; }
-a:hover { color: green; }
+/* a { color:#fff; } */
+#footer a:hover { color: #969696; }
 hr{
     border-top: 1px #9e9e9e dashed;
     margin-top: 10px;
