@@ -152,7 +152,7 @@ jQuery(document).ready(function () {
     
     //Recent Post Carousel
     $('.category-recent-post').owlCarousel({
-        // loop: true,
+        loop: true,
         margin: 0,
         smartSpeed: 500,
         responsiveClass: true,

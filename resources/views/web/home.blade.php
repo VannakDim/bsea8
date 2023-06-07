@@ -70,7 +70,7 @@
 		<div class="pagination">{{ $posts->links() }}</div>
 	</div>
 
-	<div class="single-related">
+	<!-- <div class="single-related">
 		<div class="single-title">
 			<h4><i class="fa fa-thumbs-o-up"></i> Most Popular Posts</h4>
 		</div>
@@ -94,7 +94,7 @@
 			</div>
 			@endforeach
 		</div>
-	</div>
+	</div> -->
 
 </div>
 @endsection
