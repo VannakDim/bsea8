@@ -2341,7 +2341,7 @@ aside .widget-title {
     width: 100%;
     text-transform: capitalize;
 }
-aside .widget-title > h4 {
+aside .widget-title  h4 {
     border-bottom: 1px solid;
     display: inline-block;
     float: left;

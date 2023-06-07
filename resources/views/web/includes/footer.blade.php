@@ -20,7 +20,7 @@ hr{
         <div class="row">
             <div class="col-md-6">
                 <div class="footer-heading">
-                    Company Info
+                    BSEA Info
                 </div>
                 <div class="clearfix"></div>
                 <hr class="hr">
@@ -33,11 +33,11 @@ hr{
                 <div class="clearfix"></div>
                 <hr class="hr">
                 <p style="line-height: 24px; color: #fff; margin: 0 0 10px; font-size: 13px; letter-spacing: 0.09px;">{{ $setting->address_line_one }}<br>
-                {{ $setting->address_line_two }}<br>
+                <!-- {{ $setting->address_line_two }}<br> -->
                 {{ $setting->state }}<br>
                 {{ $setting->city }} {{ $setting->zip }}<br>
                 {{ $setting->country }}<br>
-                Fax: {{ $setting->fax }}</p>
+                <!-- Fax: {{ $setting->fax }}</p> -->
                 <div class="clearfix visible-xs"><br></div>
             </div>
             <div class="col-md-2">
@@ -47,9 +47,9 @@ hr{
                 <div class="clearfix"></div>
                 <hr class="hr">
                 <a href="{{ $setting->facebook }}">Facebook</a><br>
-                <a href="{{ $setting->twitter }}">Twitter</a><br>
-                <a href="{{ $setting->google_plus }}">Google+</a><br>
-                <a href="{{ $setting->linkedin }}">Linkedin</a><br>
+                <!-- <a href="{{ $setting->twitter }}">Twitter</a><br> -->
+                <!-- <a href="{{ $setting->google_plus }}">Google+</a><br> -->
+                <!-- <a href="{{ $setting->linkedin }}">Linkedin</a><br> -->
                 <div class="clearfix visible-xs"><br></div>
             </div>
             <div class="col-md-2">
