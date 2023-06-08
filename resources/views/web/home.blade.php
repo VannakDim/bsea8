@@ -10,7 +10,7 @@
 @section('banner')
 @php($banner = App\Banner::where('publication_status', 1)->orderBy('id', 'desc')->first())
         @if(!empty($banner))
-        <img src="{{ get_banner_image_url($banner->image) }}" alt="{{ $banner->title }}" class="img-responsive" style="margin-top: 80px;">
+        <img src="{{ get_banner_image_url($banner->image) }}" alt="{{ $banner->title }}" class="img-responsive" style="margin-top: 85px;">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -32,10 +32,30 @@
 			<li><i class="ti-home"></i><a href="{{ route('homePage') }}">Home</a> / </li>
 		</ul>
 	</div>
+
 	<div class="home-news-block block-no-space">
-		<!--<div class="home-posts-head">
+
+		<!-- about part start-->
+		<section class="about_part">
+				<div class="row align-items-center justify-content-end">
+					<div class="col-md-6 col-lg-12 offset-xl-1 col-xl-6">
+						<div class="about_text">
+							<!-- <h2>យើងមានបទពិសោធ</h2> -->
+							<h2>Who we are</h2>
+							<p>{!! \Illuminate\Support\Str::limit($page->page_content,1000,'...') !!}</p>
+							<a href="{{ route('pagePage', $page->page_slug) }}" class="btn_2">read more</a>
+						</div>
+					</div>
+				</div>
+			<div class="hero-app-7 custom-animation"><img src="web/animate_icon/icon_1.png" alt=""></div>
+			<div class="hero-app-8 custom-animation2"><img src="web/animate_icon/icon_2.png" alt=""></div>
+			<div class="hero-app-6 custom-animation3"><img src="web/animate_icon/icon_3.png" alt=""></div>
+		</section>
+		<!-- about part start-->
+
+		<!-- <div class="home-posts-head">
 			<h4 class="home-posts-cat-title"><a class="cat-3" href="#">What's New</a></h4>
-		</div>-->
+		</div> -->
 		<div class="row postgrid-horiz grid-style-2">
 			@foreach($posts as $post)
 			<div class="col-sm-6">

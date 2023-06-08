@@ -22,10 +22,12 @@ use Purifier;
 class WebController extends Controller {
 
 	public function index() {
+		// dd("Testing");
 		$setting = Setting::first(['meta_title', 'meta_keywords', 'meta_description']);
 		$posts = Post::where('publication_status', 1)->orderBy('post_date', 'desc')->paginate(10);
 		$popular_posts = Post::where(['publication_status' => 1])->orderBy('view_count', 'desc')->limit(9)->get();
-		return view('web.home', compact('posts', 'popular_posts', 'setting'));
+		$page = Page::where('page_name','about')->first();
+		return view('web.home', compact('posts', 'popular_posts', 'setting', 'page'));
 	}
 
 	public function most_popular() {

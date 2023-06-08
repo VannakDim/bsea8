@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="{{ asset('web/css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ asset('web/css/owl.carousel.css') }}">
 <link rel="stylesheet" href="{{ asset('web/css/animate.css') }}">
+<link rel="stylesheet" href="{{ asset('web/css/animate-icon.css') }}">
 <link rel="stylesheet" href="{{ asset('web/css/normalize.css') }}">
 <link rel="stylesheet" href="{{ asset('web/css/style.css') }}" type="text/css" />
 <link rel="stylesheet" type="text/css" href="{{ asset('web/css/custom.css') }}">
