@@ -53,9 +53,9 @@
 		</section>
 		<!-- about part start-->
 
-		<!-- <div class="home-posts-head">
+		<div class="home-posts-head">
 			<h4 class="home-posts-cat-title"><a class="cat-3" href="#">What's New</a></h4>
-		</div> -->
+		</div>
 		<div class="row postgrid-horiz grid-style-2">
 			@foreach($posts as $post)
 			<div class="col-sm-6">

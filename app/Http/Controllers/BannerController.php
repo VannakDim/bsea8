@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Member;
 use App\Banner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

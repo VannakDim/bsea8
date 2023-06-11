@@ -75,6 +75,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin'], 'as' => 'a
 	Route::resource('subscribers', 'SubscriberController');
 	Route::get('/get-subscribers', ['as' => 'getSubscribersRoute', 'uses' => 'SubscriberController@get']);
 
+	/*** For Member ***/
+	Route::resource('members', 'MemberController');
+	Route::get('/get-members', ['as' => 'getMembersRoute', 'uses' => 'MemberController@get']);
+
 	/*** For Setting ***/
 	Route::resource('setting', 'SettingController');
 	Route::post('/setting/logo/{id}', ['as' => 'settingLogoRoute', 'uses' => 'SettingController@logo']);

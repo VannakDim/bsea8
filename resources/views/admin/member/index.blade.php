@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title', 'Banner')
+@section('title', 'Member')
 
 
 @section('style')
@@ -19,11 +19,11 @@
 <!-- Banner header -->
 <section class="content-header">
 	<h1>
-		BANNER
+		Members
 	</h1>
 	<ol class="breadcrumb">
 		<li><a href="{{ route('admin.dashboardRoute') }}"><i class="fa fa-home"></i> Dashboard</a></li>
-		<li class="active">Banner</li>
+		<li class="active">Members</li>
 	</ol>
 </section>
 <!-- /.banner header -->
@@ -32,26 +32,27 @@
 <section class="content">
 	<div class="box">
 		<div class="box-header with-border">
-			<h3 class="box-title">Manage Banners</h3>
+			<h3 class="box-title">Manage Members</h3>
 
 			<div class="box-tools">
-				<button type="button" class="btn btn-info btn-sm btn-flat add-button"><i class="fa fa-plus"></i> Add Banner</button>
+				<button type="button" class="btn btn-info btn-sm btn-flat add-button"><i class="fa fa-plus"></i> Add Member</button>
 			</div>
 		</div>
 		<!-- /.box-header -->
 		<div class="box-body">
 			<div style="width: 100%; padding-left: -10px;">
 				<div class="table-responsive">
-					<table id="banners-table" class="table table-striped table-hover dt-responsive display nowrap" cellspacing="0">
+					<table id="members-table" class="table table-striped table-hover dt-responsive display nowrap" cellspacing="0">
 						<thead>
 							<tr>
-								<th>Title</th>
-								<th>URL</th>
-								<th>Image</th>
+								<th>Company</th>
+								<th>Logo</th>
+								<th>Owner from</th>
+								<th>Telephone</th>
 								<th>Created By</th>
 								<th>Created At</th>
 								<th>Updated At</th>
-								<th width="10%">Publication Status</th>
+								{{-- <th width="10%">Publication Status</th> --}}
 								<th width="7%">Action</th>
 							</tr>
 						</thead>
@@ -66,7 +67,7 @@
 </section>
 <!-- /.main content -->
 
-<!-- add banner modal -->
+<!-- add member modal -->
 <div id="add-modal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
@@ -78,28 +79,38 @@
 							<i class="fa fa-square-o fa-stack-2x"></i>
 							<i class="fa fa-plus fa-stack-1x"></i>
 						</span>
-						Add Banner
+						Add Member
 					</h4>
 				</div>
 				<form role="form" id="banner_add_form" method="post" enctype="multipart/form-data">
 					{{ csrf_field() }}
 					<div class="modal-body">
 						<div class="form-group">
-							<label for="title">Title</label>
-							<input type="text" name="title" class="form-control" id="title">
+							<label for="company">Company</label>
+							<input type="text" name="company" class="form-control" id="company">
 							<span class="text-danger" id="title-error"></span>
 						</div>
 						<div class="form-group">
-							<label for="url">URL</label>
-							<input type="text" name="url" class="form-control" id="url">
-							<span class="text-danger" id="url-error"></span>
-						</div>
-						<div class="form-group">
-							<label for="image">Image (1900x535)</label>
+							<label for="image">Image (500x500)</label>
 							<input type="file" name="image" id="image" class="form-control">
 							<span class="text-danger" id="image-error"></span>
 						</div>
 						<div class="form-group">
+							<label for="owner_from">Owner from</label>
+							<input type="text" name="owner_from" class="form-control" id="owner_from">
+							<span class="text-danger" id="owner-error"></span>
+						</div>
+						<div class="form-group">
+							<label for="url">Telephone</label>
+							<input type="text" name="telephone" class="form-control" id="telephone">
+							<span class="text-danger" id="telephone-error"></span>
+						</div>
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input type="email" name="email" class="form-control" id="email">
+							<span class="text-danger" id="email-error"></span>
+						</div>
+						{{-- <div class="form-group">
 							<label>Publication Status</label>
 							<select class="form-control" name="publication_status" id="publication_status">
 								<option selected disabled>Select One</option>
@@ -107,7 +118,7 @@
 								<option value="0">Unpublished</option>
 							</select>
 							<span class="text-danger" id="publication-status-error"></span>
-						</div>
+						</div> --}}
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal">Close</button>
@@ -202,7 +213,7 @@
 
 
 		<!-- edit banner modal -->
-		<div id="edit-modal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+		{{-- <div id="edit-modal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
 			<div class="modal-dialog modal-lg" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -213,7 +224,7 @@
 									<i class="fa fa-square-o fa-stack-2x"></i>
 									<i class="fa fa-edit fa-stack-1x"></i>
 								</span>
-								Edit Banner
+								Edit Member
 							</h4>
 						</div>
 						<form role="form" id="banner_edit_form" method="post" enctype="multipart/form-data">
@@ -254,11 +265,11 @@
 
 					</div>
 				</div>
-			</div>
+			</div> --}}
 			<!-- /.edit banner modal -->
 
 			<!-- view user modal -->
-			<div id="user-view-modal" class="modal fade bs-example-modal-lg print-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+			{{-- <div id="user-view-modal" class="modal fade bs-example-modal-lg print-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
 				<div class="modal-dialog modal-lg" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
@@ -344,20 +355,11 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> --}}
 			<!-- /.view user modal -->
 			@endsection
 
 			@section('script')
-	<!-- <script type="text/javascript" src="https://datatables.yajrabox.com/js/jquery.dataTables.min.js"></script>
-	<script type="text/javascript" src="https://datatables.yajrabox.com/js/datatables.bootstrap.js"></script>
-	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
-	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
-	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
-	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
-	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.colVis.min.js"></script> -->
 
 	<script type="text/javascript" src="{{ asset('admin/datatable/js/jquery.dataTables.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('admin/datatable/js/datatables.bootstrap.js') }}"></script>
@@ -376,106 +378,106 @@
 		});
 
 		/** Edit **/
-		$("#banners-table").on("click", ".edit-button", function(){
-			var banner_id = $(this).data("id");
-			var url = "{{ route('admin.banners.show', 'banner_id') }}";
-			url = url.replace("banner_id", banner_id);
-			$.ajax({
-				url: url,
-				method: "GET",
-				dataType: "json",
-				success:function(data){
-					$('#edit-modal').modal('show');
-					$('#edit-banner-id').val(data['id']);
-					$('#edit-title').val(data['title']);
-					$('#edit-url').val(data['url']);
-					$('#edit-publication-status').val(data['publication_status']);
-				}});
-		});
+		// $("#members-table").on("click", ".edit-button", function(){
+		// 	var banner_id = $(this).data("id");
+		// 	var url = "{{ route('admin.banners.show', 'banner_id') }}";
+		// 	url = url.replace("banner_id", banner_id);
+		// 	$.ajax({
+		// 		url: url,
+		// 		method: "GET",
+		// 		dataType: "json",
+		// 		success:function(data){
+		// 			$('#edit-modal').modal('show');
+		// 			$('#edit-banner-id').val(data['id']);
+		// 			$('#edit-title').val(data['title']);
+		// 			$('#edit-url').val(data['url']);
+		// 			$('#edit-publication-status').val(data['publication_status']);
+		// 		}});
+		// });
 
 		/** Update **/
-		$(".update-button").click(function(){
-			var banner_id = $('#edit-banner-id').val();
-			var url = "{{ route('admin.banners.update', 'banner_id') }}";
-			url = url.replace("banner_id", banner_id);
-			var postData = new FormData($("#banner_edit_form")[0]);
-			$( '.title-error' ).html( "" );
-			$( '.url-error' ).html( "" );
-			$( '.image-error' ).html( "" );
-			$( '.publication-status-error' ).html( "" );
-			$.ajax({
-				type:'POST',
-				url: url,
-				processData: false,
-				contentType: false,
-				data : postData,
-				success:function(data) {
-					console.log(data);
-					if(data.errors) {
-						if(data.errors.title){
-							$( '.title-error' ).html( data.errors.title[0] );
-						}
-						if(data.errors.url){
-							$( '.url-error' ).html( data.errors.url[0] );
-						}
-						if(data.errors.image){
-							$( '.image-error' ).html( data.errors.image[0] );
-						}
-						if(data.errors.publication_status){
-							$( '.publication-status-error' ).html( data.errors.publication_status[0] );
-						}
-					}
-					if(data.success) {
-						window.location.href = '{{ route('admin.banners.index') }}';
-					}
-				},
-			});
-		});
+		// $(".update-button").click(function(){
+		// 	var banner_id = $('#edit-banner-id').val();
+		// 	var url = "{{ route('admin.banners.update', 'banner_id') }}";
+		// 	url = url.replace("banner_id", banner_id);
+		// 	var postData = new FormData($("#banner_edit_form")[0]);
+		// 	$( '.title-error' ).html( "" );
+		// 	$( '.url-error' ).html( "" );
+		// 	$( '.image-error' ).html( "" );
+		// 	$( '.publication-status-error' ).html( "" );
+		// 	$.ajax({
+		// 		type:'POST',
+		// 		url: url,
+		// 		processData: false,
+		// 		contentType: false,
+		// 		data : postData,
+		// 		success:function(data) {
+		// 			console.log(data);
+		// 			if(data.errors) {
+		// 				if(data.errors.title){
+		// 					$( '.title-error' ).html( data.errors.title[0] );
+		// 				}
+		// 				if(data.errors.url){
+		// 					$( '.url-error' ).html( data.errors.url[0] );
+		// 				}
+		// 				if(data.errors.image){
+		// 					$( '.image-error' ).html( data.errors.image[0] );
+		// 				}
+		// 				if(data.errors.publication_status){
+		// 					$( '.publication-status-error' ).html( data.errors.publication_status[0] );
+		// 				}
+		// 			}
+		// 			if(data.success) {
+		// 				window.location.href = '{{ route('admin.banners.index') }}';
+		// 			}
+		// 		},
+		// 	});
+		// });
 
 		/** Delete **/
-		$("#banners-table").on("click", ".delete-button", function(){
-			var banner_id = $(this).data("id");
-			var url = "{{ route('admin.banners.destroy', 'banner_id') }}";
-			url = url.replace("banner_id", banner_id);
+		$("#members-table").on("click", ".delete-button", function(){
+			var member_id = $(this).data("id");
+			var url = "{{ route('admin.members.destroy', 'member_id') }}";
+			url = url.replace("member_id", member_id);
 			$('#delete-modal').modal('show');
 			$('#delete_form').attr('action', url);
 		});
 
 		/** View **/
-		$("#banners-table").on("click", ".view-button", function(){
-			var banner_id = $(this).data("id");
-			var url = "{{ route('admin.banners.show', 'banner_id') }}";
-			url = url.replace("banner_id", banner_id);
-			$.ajax({
-				url: url,
-				method: "GET",
-				dataType: "json",
-				success:function(data){
-					var src = '{{ get_banner_image_url() }}/';
-					var no_image = '{{ get_banner_image_url('no_image.jpg') }}';
-					$('#view-modal').modal('show');
-					$('#view-title').text(data['title']);
-					$('#view-url').text(data['url']);
-					$('#view-created-by').text(data['user']['name']);
-					if(data['image']){
-						$("#view-image").attr("src", src+data['image']);
-					}else{
-						$("#view-image").attr("src", no_image);
-					}
-					if(data['publication_status'] == 1){
-						$('#view-publication-status').text('Published');
-					}else{
-						$('#view-publication-status').text('Unpublished');
-					}
-				}});
-		});
+		// $("#members-table").on("click", ".view-button", function(){
+		// 	var banner_id = $(this).data("id");
+		// 	var url = "{{ route('admin.banners.show', 'banner_id') }}";
+		// 	url = url.replace("banner_id", banner_id);
+		// 	$.ajax({
+		// 		url: url,
+		// 		method: "GET",
+		// 		dataType: "json",
+		// 		success:function(data){
+		// 			var src = '{{ get_banner_image_url() }}/';
+		// 			var no_image = '{{ get_banner_image_url('no_image.jpg') }}';
+		// 			$('#view-modal').modal('show');
+		// 			$('#view-title').text(data['title']);
+		// 			$('#view-url').text(data['url']);
+		// 			$('#view-created-by').text(data['user']['name']);
+		// 			if(data['image']){
+		// 				$("#view-image").attr("src", src+data['image']);
+		// 			}else{
+		// 				$("#view-image").attr("src", no_image);
+		// 			}
+		// 			if(data['publication_status'] == 1){
+		// 				$('#view-publication-status').text('Published');
+		// 			}else{
+		// 				$('#view-publication-status').text('Unpublished');
+		// 			}
+		// 		}});
+		// });
 
 		/** Add **/
 		$(".add-button").click(function(){
 			$('#add-modal').modal('show');
 		});
 
-		/** Store **/
+		// /** Store **/
 		$("#store-button").click(function(){
 			var postData = new FormData($("#banner_add_form")[0]);
 			$( '#title-error' ).html( "" );
@@ -484,7 +486,7 @@
 			$( '#publication-status-error' ).html( "" );
 			$.ajax({
 				type:'POST',
-				url:'{{ route('admin.banners.store') }}',
+				url:'{{ route('admin.members.store') }}',
 				processData: false,
 				contentType: false,
 				data : postData,
@@ -505,7 +507,7 @@
 						}
 					}
 					if(data.success) {
-						window.location.href = '{{ route('admin.banners.index') }}';
+						window.location.href = '{{ route('admin.members.index') }}';
 					}
 				},
 			});
@@ -513,7 +515,7 @@
 
 		/** Get datatable **/
 		function get_table_data(){
-			$('#banners-table').DataTable({
+			$('#members-table').DataTable({
 				dom: 'Blfrtip',
 				buttons: [
 				{ extend: 'copy', exportOptions: { columns: ':visible'}},
@@ -529,67 +531,68 @@
 				lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
 				processing: true,
 				serverSide: true,
-				ajax: "{{ route('admin.getBannersRoute') }}",
+				ajax: "{{ route('admin.getMembersRoute') }}",
 				columns: [
-				{data: 'title'},
-				{data: 'url'},
-				{data: 'image', name: 'image', orderable: false, searchable: false},
+				{data: 'company'},
+				{data: 'company_logo'},
+				{data: 'owner_from'},
+				{data: 'telephone'},
 				{data: 'username', name: 'username', orderable: true, searchable: true}, 
 				{data: 'created_at'},
 				{data: 'updated_at'},
-				{data: 'publication_status', name: 'publication_status', orderable: false, searchable: false},
+				// {data: 'publication_status', name: 'publication_status', orderable: false, searchable: false},
 				{data: 'action', name: 'action', orderable: false, searchable: false},
 				],
-				order: [[3, 'desc']],
+				// order: [[0, 'desc']],
 			});
 		}
 
 		/** User View **/
-		$("#banners-table").on("click", ".user-view-button", function(){
-			var id = $(this).data("id");
-			var url = "{{ route('admin.users.show', 'id') }}";
-			url = url.replace("id", id);
-			$.ajax({
-				url: url,
-				method: "GET",
-				dataType: "json",
-				success:function(data){
-					var src = '{{ asset('avatar') }}/';
-					var default_avatar = '{{ asset('avatar/user.png') }}';
-					$('#user-view-modal').modal('show');
+		// $("#members-table").on("click", ".user-view-button", function(){
+		// 	var id = $(this).data("id");
+		// 	var url = "{{ route('admin.users.show', 'id') }}";
+		// 	url = url.replace("id", id);
+		// 	$.ajax({
+		// 		url: url,
+		// 		method: "GET",
+		// 		dataType: "json",
+		// 		success:function(data){
+		// 			var src = '{{ asset('avatar') }}/';
+		// 			var default_avatar = '{{ asset('avatar/user.png') }}';
+		// 			$('#user-view-modal').modal('show');
 
-					$('#view-name').text(data['name']);
-					$('#view-username').text(data['username']);
-					$('#view-email').text(data['email']);
-					$("#view-avatar").attr("src", src+data['avatar']);
-					if(data['avatar']){
-						$("#view-avatar").attr("src", src+data['avatar']);
-					}else{
-						$("#view-avatar").attr("src", default_avatar);
-					}
-					if(data['gender'] == 'm'){
-						$('#view-gender').text('Male');
-					}else{
-						$('#view-gender').text('Female');
-					}
-					$('#view-phone').text(data['phone']);
-					$('#view-address').text(data['address']);
-					$('#view-facebook').text(data['facebook']);
-					$('#view-twitter').text(data['twitter']);
-					$('#view-google-plus').text(data['google_plus']);
-					$('#view-linkedin').text(data['linkedin']);
-					$('#view-about').text(data['about']);
-					if(data['role'] == 'admin'){
-						$('#view-role').text('Admin');
-					}else{
-						$('#view-role').text('User');
-					}
-					if(data['activation_status'] == 1){
-						$('#view-status').text('Active');
-					}else{
-						$('#view-status').text('Block');
-					}
-				}});
-		});
+		// 			$('#view-name').text(data['name']);
+		// 			$('#view-username').text(data['username']);
+		// 			$('#view-email').text(data['email']);
+		// 			$("#view-avatar").attr("src", src+data['avatar']);
+		// 			if(data['avatar']){
+		// 				$("#view-avatar").attr("src", src+data['avatar']);
+		// 			}else{
+		// 				$("#view-avatar").attr("src", default_avatar);
+		// 			}
+		// 			if(data['gender'] == 'm'){
+		// 				$('#view-gender').text('Male');
+		// 			}else{
+		// 				$('#view-gender').text('Female');
+		// 			}
+		// 			$('#view-phone').text(data['phone']);
+		// 			$('#view-address').text(data['address']);
+		// 			$('#view-facebook').text(data['facebook']);
+		// 			$('#view-twitter').text(data['twitter']);
+		// 			$('#view-google-plus').text(data['google_plus']);
+		// 			$('#view-linkedin').text(data['linkedin']);
+		// 			$('#view-about').text(data['about']);
+		// 			if(data['role'] == 'admin'){
+		// 				$('#view-role').text('Admin');
+		// 			}else{
+		// 				$('#view-role').text('User');
+		// 			}
+		// 			if(data['activation_status'] == 1){
+		// 				$('#view-status').text('Active');
+		// 			}else{
+		// 				$('#view-status').text('Block');
+		// 			}
+		// 		}});
+		// });
 	</script>
 	@endsection

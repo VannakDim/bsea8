@@ -25,6 +25,7 @@
         <li><a href="{{ route('admin.users.index') }}"><i class="fa fa-users text-purple"></i> <span>User</span></a></li>
         <li><a href="{{ route('admin.comments.index') }}"><i class="fa fa-comment text-purple"></i> <span>Comment</span></a></li>
         <li><a href="{{ route('admin.subscribers.index') }}"><i class="fa fa-envelope text-purple"></i> <span>Subscriber</span></a></li>
+        <li><a href="{{ route('admin.members.index') }}"><i class="fa fa-envelope text-purple"></i> <span>Member</span></a></li>
         <li><a href="{{ route('admin.pages.index') }}"><i class="fa fa-file text-purple"></i> <span>Page</span></a></li>
         <li><a href="{{ route('admin.galleries.index') }}"><i class="fa fa-image text-purple"></i> <span>Gallery</span></a></li>
         <li><a href="{{ route('admin.advertisements.index') }}"><i class="fa fa-image text-purple"></i> <span>Advertisement</span></a></li>

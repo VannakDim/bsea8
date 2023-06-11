@@ -135,6 +135,24 @@ function get_banner_image_path($var = null)
     }
 }
 
+function get_member_image_url($var = null)
+{
+    if ($var != null) {
+        return asset('member_image/' . $var . '');
+    } else {
+        return asset('member_image/');
+    }
+}
+
+function get_member_image_path($var = null)
+{
+    if ($var != null) {
+        return public_path('member_image/' . $var . '');
+    } else {
+        return public_path('member_image/');
+    }
+}
+
 function isAdmin()
 {
     $user = Auth::user();
