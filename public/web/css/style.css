@@ -987,6 +987,9 @@ label:hover:before {
 /*--- logo area ---*/
 
 @media (max-width: 768px) {
+    /* .navbar-default{
+        background-image: url("");
+    } */
     .navbar-brand{
         padding: 0 0 0 10px;
     }
@@ -1001,6 +1004,14 @@ label:hover:before {
 }
 
 @media (min-width: 768px) {
+    .navbar-default{
+        background-image: url("/web/nav-bg.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+    .navbar-default .navbar-nav>li>a {
+        color: #fff;
+    }
     .navbar-brand img{
         width: 70px;
     }
