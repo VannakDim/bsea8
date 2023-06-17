@@ -66,6 +66,10 @@ Version: 1.0
     font-family: 'Khmer-Muol';
     src: url("/web/fonts/KhmerOSmuollight.ttf");
 }
+@font-face {
+    font-family: 'KhmerOsBattambang';
+    src: url("/web/fonts/KhmerOsBattambang.ttf");
+}
 
 /*================================== 
        COMMON STYLE
@@ -86,7 +90,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
     padding: 0;
     margin: 0;
-    font-family: 'Poppins';
+    /* font-family: 'Poppins'; */
 }
 p {
     font-size: 14px;
@@ -140,6 +144,7 @@ section {
     float: left;
     position: relative;
     width: 100%;
+    font-family: "KhmerOsBattambang";
 }
 .space {
     float: left;

@@ -18,7 +18,7 @@
 /**************** common css start ****************/
 /* line 3, E:/167 Bizcon Business/Bizcon_html/sass/_common.scss */
 body {
-  font-family: "Roboto", sans-serif;
+  /* font-family: "Roboto", sans-serif; */
   padding: 0;
   margin: 0;
   font-size: 14px;
@@ -156,13 +156,13 @@ a:hover {
 /* line 74, E:/167 Bizcon Business/Bizcon_html/sass/_common.scss */
 h1, h2, h3, h4, h5, h6 {
   color: #2f373d;
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
 }
 
 /* line 78, E:/167 Bizcon Business/Bizcon_html/sass/_common.scss */
 p {
   color: #666666;
-  font-family: "Roboto", sans-serif;
+  /* font-family: "Roboto", sans-serif; */
   line-height: 1.929;
   font-size: 15px;
   margin-bottom: 0px;
