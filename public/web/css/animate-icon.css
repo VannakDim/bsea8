@@ -2901,7 +2901,7 @@ ul {
 @media (max-width: 576px) {
   /* line 2, E:/167 Bizcon Business/Bizcon_html/sass/_about.scss */
   .about_part {
-    padding: 70px 0px 70px;
+    padding: 10px 0px 70px;
     background-position: top;
     background-size: 100% 43%;
   }
@@ -2935,7 +2935,7 @@ ul {
 @media (max-width: 576px) {
   /* line 29, E:/167 Bizcon Business/Bizcon_html/sass/_about.scss */
   .about_part .about_text {
-    margin-top: 50px;
+    margin-top: 20px;
   }
 }
 
