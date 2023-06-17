@@ -41,7 +41,7 @@
 					<div class="col-md-6 col-lg-12 offset-xl-1 col-xl-6">
 						<div class="about_text">
 							<!-- <h2>យើងមានបទពិសោធ</h2> -->
-							<h2>Who we are</h2>
+							<h2>WHO WE ARE</h2>
 							<p>{!! \Illuminate\Support\Str::limit($page->page_content,1000,'...') !!}</p>
 							<a href="{{ route('pagePage', $page->page_slug) }}" class="btn_2">read more</a>
 						</div>
