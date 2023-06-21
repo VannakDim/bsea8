@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Banner;
 use App\Category;
 use App\Comment;
 use App\Gallery;
@@ -27,7 +28,8 @@ class WebController extends Controller {
 		$posts = Post::where('publication_status', 1)->orderBy('post_date', 'desc')->paginate(10);
 		$popular_posts = Post::where(['publication_status' => 1])->orderBy('view_count', 'desc')->limit(9)->get();
 		$page = Page::where('page_name','about')->first();
-		return view('web.home', compact('posts', 'popular_posts', 'setting', 'page'));
+		$banner = Banner::all();
+		return view('web.home', compact('posts', 'popular_posts', 'setting', 'page','banner'));
 	}
 
 	public function most_popular() {

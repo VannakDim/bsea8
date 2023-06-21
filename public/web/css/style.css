@@ -383,6 +383,34 @@ a:hover.vk {
 
 
 /*--- Banner ---*/
+
+.fader-c{
+    margin-top: 80px;
+    height: 400px;
+    box-shadow: 0 .2em .2em rgb(143, 138, 138);
+    position: relative;
+	overflow: hidden; 
+}
+.fader-c>*{
+    position:absolute;
+    
+}
+.fader-c>*:nth-child(1) {
+	animation:fade1 15s infinite;
+}
+@keyframes fade1 {
+	0%   {opacity:1}
+	50%  {opacity:0}
+	100%  {opacity:1}
+}
+.fader-c>*:nth-child(2) {
+	animation:fade2 15s infinite;
+}
+@keyframes fade2 {
+	0%   {opacity:0}
+	50%  {opacity:1}
+	100%  {opacity:0}
+}
 .panel .panel-body{
     padding: 10px;
 }
@@ -398,7 +426,11 @@ a:hover.vk {
         font-size: .7rem;
         text-align: center;
     }
-
+    
+    .fader-c{
+        height: 200px;
+    }
+    
     .img-responsive{
         height: 200px;
         object-fit: cover;
@@ -2474,6 +2506,7 @@ aside .widget-title  h4 {
     width: 10px;
 }
 /*--- Carousel nav button style ---*/
+
 
 .owl-nav {
     position: absolute;
