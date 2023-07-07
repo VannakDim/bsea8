@@ -46,7 +46,7 @@
 						<div class="about_text">
 							<!-- <h2>យើងមានបទពិសោធ</h2> -->
 							<h2>WHO WE ARE</h2>
-							<p>{!! \Illuminate\Support\Str::limit($page->page_content,1000,'...') !!}</p>
+							<p>{!! \Illuminate\Support\Str::limit($page->page_content,4000,'...') !!}</p>
 							<a href="{{ route('pagePage', $page->page_slug) }}" class="btn_2">read more</a>
 						</div>
 					</div>
