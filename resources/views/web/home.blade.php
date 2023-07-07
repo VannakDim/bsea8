@@ -5,30 +5,28 @@
 @section('description', $setting->meta_description)
 
 @section('style')
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 @endsection
 
+<!-- @foreach($banner as $banner)
+	<img src="{{ get_banner_image_url($banner->image) }}" alt="{{ $banner->title }}" class="img-responsive">
+@endforeach -->
 @section('banner')
-@php($banners = App\Banner::all())
-<div class="carousel">
-	<div class="fader-c"> 
-		@foreach($banner as $banner)
-		<!-- @if(!empty($banner)) -->
-			<img src="{{ get_banner_image_url($banner->image) }}" alt="{{ $banner->title }}" class="img-responsive">
-			<!-- <div class="container">
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<div class="panel panel-info" style="box-shadow: 0 8px 61px -2px rgba(0,0,0,.2);margin-top: -10px;">
-							<div class="panel-body">
-								<h5 class="text-primary banner-text" style="margin-top: 0px; color: #008fd5"><strong>{{ $banner->title }}</strong></h5>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div> -->
-			<!-- @endif -->
-		@endforeach
-	</div>
-</div>
+@php($banner = App\Banner::where('publication_status', 1)->orderBy('id', 'desc')->first())
+        @if(!empty($banner))
+        <img src="{{ get_banner_image_url($banner->image) }}" alt="{{ $banner->title }}" class="img-responsive" style="margin-top: 80px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-info" style="box-shadow: 0 8px 61px -2px rgba(0,0,0,.2);margin-top: -42px;">
+                        <div class="panel-body">
+                            <h3 class="text-primary" style="margin-top: 0px; color: #008fd5"><strong>{{ $banner->title }}</strong></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endif
 @endsection
 
 @section('content')

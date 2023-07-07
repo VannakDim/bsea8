@@ -383,21 +383,27 @@ a:hover.vk {
 
 
 /*--- Banner ---*/
-
-.fader-c{
-    margin-top: 80px;
-    height: 400px;
-    box-shadow: 0 .2em .2em rgb(143, 138, 138);
-    position: relative;
-	overflow: hidden; 
-}
-.fader-c>*{
-    position:absolute;
+@media (min-width:768px) {
     
+    
+    .fader-c{
+        margin-top: 80px;
+        height: 400px; 
+        box-shadow: 0 .2em .2em rgb(143, 138, 138);
+        position: relative;
+        overflow: hidden; 
+    }
+    .fader-c img{
+        object-fit: cover;
+    }
 }
-.fader-c>*:nth-child(1) {
-	animation:fade1 15s infinite;
-}
+    .fader-c>*{
+        position:absolute;
+        
+    }
+    .fader-c>*:nth-child(1) {
+        animation:fade1 15s infinite;
+    }
 @keyframes fade1 {
 	0%   {opacity:1}
 	50%  {opacity:0}
@@ -430,10 +436,13 @@ a:hover.vk {
     .fader-c{
         height: 200px;
     }
+    .fader-c img{
+        object-fit: cover;
+    }
     
     .img-responsive{
-        height: 200px;
-        object-fit: cover;
+        /* height: 200px; */
+        /* object-fit: cover; */
     }
 }
 
@@ -1036,13 +1045,13 @@ label:hover:before {
 }
 
 @media (min-width: 768px) {
-    .navbar-default{
+    /* .navbar-default{
         background-image: url("/web/nav-bg.png");
         background-repeat: no-repeat;
         background-size: 100% 100%;
-    }
+    } */
     .navbar-default .navbar-nav>li>a {
-        color: #fff;
+        /* color: #fff; */
     }
     .navbar-brand img{
         width: 70px;
