@@ -25,7 +25,7 @@ hr{
                 </div>
                 <div class="clearfix"></div>
                 <hr class="hr">
-                <p class="text-justify" style="line-height: 24px; color: #fff; margin: 0 0 10px; font-size: 13px; letter-spacing: 0.09px;">{{ $setting->about_us }}</p>
+                <p style="line-height: 24px; color: #fff; margin: 0 0 10px; font-size: 13px; letter-spacing: 0.09px;">{{ $setting->about_us }}</p>
             </div>
             <div class="col-md-4">
                 <div class="footer-heading">
