@@ -17,7 +17,7 @@
 
         <!-- first section block -->
         <section>
-            <div class="space">
+            <div  id="spacer">
                 <div class="container">
                     <div class="row">
                         <!-- left section -->

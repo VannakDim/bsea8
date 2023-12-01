@@ -122,9 +122,7 @@
         width: 100%;
         height: auto;
     }
-	.space{
-		padding: 50px 0;
-	}
+
 
 	@media (max-width: 979px) {
 		#banner-caption{
@@ -133,12 +131,19 @@
 		#banner-title-shape{
 			margin-top: -35
 		}
+		#spacer{
+		padding: 10px 0;
+	}
+
 	}
 
 	@media (min-width:979px){
 		#banner-title-shape{
 			margin-top: -75
 		}
+		#spacer{
+		padding: 50px 0;
+	}
 	}
     </style>
 
@@ -156,8 +161,8 @@
 
     });
     </script>
-
+<!-- 
     <script src="{{ asset('web/js/bootstrap-collapse.js') }}"></script>
     <script src="{{ asset('web/js/bootstrap-transition.js') }}"></script>
     <script src="{{ asset('web/js/bootstrap-tab.js') }}"></script>
-    <script src="{{ asset('web/js/application.js') }}"></script>
+    <script src="{{ asset('web/js/application.js') }}"></script> -->
