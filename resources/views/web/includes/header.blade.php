@@ -64,7 +64,7 @@
           <img src="{{ asset('web/bsea-logo.png') }}" alt="" style="height:3.5rem; padding-right:10px;">
           <!-- <div class="nav__title" style="font-size:1.1rem;">
             <div class="kh_title">សមាគមកាបូប​ ស្បែកជើង និងអេឡិចត្រូនិចកម្ពុជា</br><h6>Cambodia's Bags, Shoes and Electronic Association</h6></div>
-          </div> -->  
+          </div> -->
           
       </a>
       <!-- <a href="" class="nav__logo">សមាគមកាបូប​ ស្បែកជើង និងអេឡិចត្រូនិចកម្ពុជា</a> -->
@@ -133,7 +133,7 @@
 
       <div class="nav__actions">
           <!-- Search button -->
-          <i class="ri-search-line nav__search" id="search-btn"></i>
+          <!-- <i class="ri-search-line nav__search" id="search-btn"></i> -->
 
           <!-- Login button -->
           <a href="{{ route('login') }}">
