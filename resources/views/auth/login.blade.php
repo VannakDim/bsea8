@@ -1,5 +1,5 @@
-@extends('web.layouts.app')
-@section('title', 'My Blog')
+@extends('web.layouts.app_login')
+@section('title', 'Login')
 
 
 @section('style')

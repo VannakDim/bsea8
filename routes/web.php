@@ -7,6 +7,7 @@
  */
 
 Route::group(['prefix' => '/'], function () {
+	// Route::view('/home','web.index');
 	Route::get('/', ['as' => 'homePage', 'uses' => 'WebController@index']);
 	Route::get('/most-popular', ['as' => 'mostPopularPage', 'uses' => 'WebController@most_popular']);
 	Route::get('/tags', ['as' => 'tagsPage', 'uses' => 'WebController@tags']);

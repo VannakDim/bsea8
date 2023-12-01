@@ -1,26 +1,37 @@
-@extends('web.layouts.app')
+@extends('web.layouts.home_layout')
 
 @section('title', $setting->meta_title)
 @section('keywords', $setting->meta_keywords)
 @section('description', $setting->meta_description)
 
 @section('style')
-	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+<!-- <link href="{{ asset('web/css/custom.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('web/css/style.css') }}" type="text/css" /> -->
 @endsection
 
 <!-- @foreach($banner as $banner)
 	<img src="{{ get_banner_image_url($banner->image) }}" alt="{{ $banner->title }}" class="img-responsive">
 @endforeach -->
 @section('banner')
-@php($banner = App\Banner::where('publication_status', 1)->orderBy('id', 'desc')->first())
+	@php($banner = App\Banner::where('publication_status', 1)->orderBy('id', 'desc')->first())
         @if(!empty($banner))
-        <img src="{{ get_banner_image_url($banner->image) }}" alt="{{ $banner->title }}" class="img-responsive" style="margin-top: 80px;">
+        <!-- <img src="{{ get_banner_image_url($banner->image) }}" alt="{{ $banner->title }}" class="img-responsive" style="margin-top: 80px;"> -->
+
+		<div id="owl-demo" class="owl-carousel" style="margin-top: 3rem;">
+
+			<div class="item"><img src="{{ asset('web/banner_image/1687781105.jpg') }}" alt="BSEA"></div>
+			<div class="item"><img src="{{ asset('web/banner_image/043A4046.jpg') }}" alt="BSEA"></div>
+			<div class="item"><img src="{{ asset('web/banner_image/f8bd9ba5c0714a1bcf5d73c5092de61e.jpg') }}" alt="BSEA"></div>
+			
+		</div>
+
+
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="panel panel-info" style="box-shadow: 0 8px 61px -2px rgba(0,0,0,.2);margin-top: -20px;">
+                    <div class="panel panel-info" style="box-shadow: 0 8px 61px -2px rgba(0,0,0,.2);margin-top: -80px;">
                         <div class="panel-body">
-                            <h4 class="text-primary text-center" style="margin-top: 0px; color: #008fd5"><strong>{{ $banner->title }}</strong></h4>
+                            <h4 class="text-primary text-center" style="margin-top: 0px; color: #008fd5; font-size:1rem;"><strong>{{ $banner->title }}</strong></h4>
                         </div>
                     </div>
                 </div>
@@ -33,31 +44,31 @@
 <div class="col-md-8">
 	<div class="crumb inner-page-crumb">
 		<ul>
-			<li><i class="ti-home"></i><a href="{{ route('homePage') }}">Home</a> / </li>
+			<li><i class="ti-home"></i><a href="{{ route('homePage') }}">Home</a>  </li>
 		</ul>
 	</div>
 
 	<div class="home-news-block block-no-space">
 
 		<!-- about part start-->
-		<section class="about_part">
-				<div class="row align-items-center justify-content-end">
+		<!-- <section class="about_part"> -->
+				<div class="row align-items-center justify-content-center">
 					<div class="col-md-6 col-lg-12 offset-xl-1 col-xl-6">
 						<div class="about_text">
 							<!-- <h2>យើងមានបទពិសោធ</h2> -->
 							<h2>WHO WE ARE</h2>
 							<p>{!! \Illuminate\Support\Str::limit($page->page_content,4000,'...') !!}</p>
-							<a href="{{ route('pagePage', $page->page_slug) }}" class="btn_2">read more</a>
+							<!-- <a href="{{ route('pagePage', $page->page_slug) }}" class="btn_2">read more</a> -->
 						</div>
 					</div>
 				</div>
 			<div class="hero-app-7 custom-animation"><img src="web/animate_icon/icon_1.png" alt=""></div>
 			<div class="hero-app-8 custom-animation2"><img src="web/animate_icon/icon_2.png" alt=""></div>
 			<div class="hero-app-6 custom-animation3"><img src="web/animate_icon/icon_3.png" alt=""></div>
-		</section>
+		<!-- </section> -->
 		<!-- about part start-->
 
-		<div class="home-posts-head">
+		<div class="home-posts-head mt-30">
 			<h4 class="home-posts-cat-title"><a class="cat-3" href="#">What's New</a></h4>
 		</div>
 		<div class="row postgrid-horiz grid-style-2">
@@ -93,33 +104,6 @@
 		</div>
 		<div class="pagination">{{ $posts->links() }}</div>
 	</div>
-
-	<!-- <div class="single-related">
-		<div class="single-title">
-			<h4><i class="fa fa-thumbs-o-up"></i> Most Popular Posts</h4>
-		</div>
-		<div class="category-recent-post">
-			@foreach($popular_posts->chunk(3) as $items)
-			<div class="progress-unit">
-				@foreach($items as $popular_post)
-				<a href="{{ route('detailsPage', $popular_post->post_slug) }}" title="">
-					<div class="col-md-4 col-sm-6">
-						<div class="pp-trending-grid">
-							<img src="{{ get_featured_image_thumbnail_url($popular_post->featured_image) }}" alt="maro news">
-							<div class="pp-trend-meta">
-								<h7>
-									{{ \Illuminate\Support\Str::limit($popular_post->post_title, 50, '...') }}
-								</h7>
-							</div>
-						</div>
-					</div>
-				</a>
-				@endforeach
-			</div>
-			@endforeach
-		</div>
-	</div> -->
-
 </div>
 @endsection
 
@@ -128,4 +112,37 @@
 @endsection
 
 @section('script')
+	
 @endsection
+<script src="{{ asset('web/js/jquery-1.9.1.min.js') }}"></script> 
+<script src="{{ asset('web/js/owl.carousel.js') }}"></script>
+<style>
+    #owl-demo .item img{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+	.space{
+		padding: 50px 0;
+	}
+    </style>
+
+<script>
+    $(document).ready(function() {
+
+      var owl = $("#owl-demo");
+
+      owl.owlCarousel({
+        autoPlay: true,
+        navigation : false,
+        singleItem : true,
+        transitionStyle : "fade"
+      });
+
+    });
+    </script>
+
+    <script src="{{ asset('web/js/bootstrap-collapse.js') }}"></script>
+    <script src="{{ asset('web/js/bootstrap-transition.js') }}"></script>
+    <script src="{{ asset('web/js/bootstrap-tab.js') }}"></script>
+    <script src="{{ asset('web/js/application.js') }}"></script>
