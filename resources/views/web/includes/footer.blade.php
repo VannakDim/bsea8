@@ -1,6 +1,6 @@
 <div class="clearfix"></div>
 <style type="text/css">
-#footer {background: #464646; border-top: 2px #fff solid; color: #fff; padding: 50px 0px; }
+#footer {background: #464646; border-top: 2px #fff solid; color: #fff; padding: 5px 0px; }
 .footer-heading {font-size: 18px; font-weight: bold; color: #fff; text-shadow: none;}
 #footer a {
     line-height: 24px;
