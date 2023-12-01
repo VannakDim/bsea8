@@ -23,7 +23,8 @@
 </div>
 
 <div class="col-md-6 wow fadeInUp">
-	<div class="well">
+	
+	<!-- <div class="well"> -->
 		<h3>Get in Touch</h3>
 		<div class="contact-form contact-us-form">
 			<form class="row">
@@ -44,8 +45,7 @@
 				</div>
 			</form>
 		</div>
-
-	</div>
+	<!-- </div> -->
 </div>
 <div class="col-md-6 wow fadeInUp">
 	<div class="well">

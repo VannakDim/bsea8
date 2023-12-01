@@ -2947,7 +2947,7 @@ single-related img {
     background-color: #ffffff;
     border: medium none;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-    padding: 50px;
+    /* padding: 50px; */
     border-radius: 2px;
 }
 .border-icon {
