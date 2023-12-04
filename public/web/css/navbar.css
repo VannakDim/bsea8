@@ -113,6 +113,7 @@ a {
   display: inline-flex;
   align-items: center;
   column-gap: .25rem;
+  font-size: .7rem;
   font-weight: var(--font-semi-bold);
   /* Color highlighting when pressed on mobile devices */
   /*-webkit-tap-highlight-color: transparent;*/
@@ -275,6 +276,9 @@ a {
   #logo-img{
     height: 3rem;
     padding: 0 10;
+  }
+  .bsea-title h4{
+    font-size: .7rem;
   }
   .container {
     margin-inline: 1rem;

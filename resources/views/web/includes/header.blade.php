@@ -65,7 +65,7 @@
     <nav class="nav">
       <div class="nav__data">
           <a href="{{ route('homePage') }}" class="nav__logo">
-          <img id="logo-img" src="{{ asset('web/logo/bsea-logo.png') }}" alt=""​><div class="bsea-title"><h4>សមាគមកាបូប​ ស្បែកជើង និងអេឡិចត្រូនិចកម្ពុជា</h4>Cambodia's Bag, Shoe & Electronic Association</div>
+          <img id="logo-img" src="{{ asset('web/logo/bsea-logo.png') }}" alt=""​><div class="bsea-title"><h4> សមាគមកាបូប​ ស្បែកជើង និងអេឡិចត្រូនិចកម្ពុជា</h4> Cambodia's Bag, Shoe & Electronic Association</div>
           </a>
           
           <div class="nav__toggle" id="nav-toggle">
