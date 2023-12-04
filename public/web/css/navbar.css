@@ -272,7 +272,7 @@ a {
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 435px) {
   #logo-img{
     height: 3rem;
     padding: 0 10;
@@ -288,6 +288,7 @@ a {
     padding-inline: 1rem;
   }
 }
+
 
 /* For large devices */
 @media screen and (min-width: 1118px) {
