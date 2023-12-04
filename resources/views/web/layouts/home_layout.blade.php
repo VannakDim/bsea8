@@ -9,7 +9,7 @@
 
 <body>
     <!-- theme layout -->
-    <div class="theme-layout">
+    <!-- <div class="theme-layout"> -->
         <!-- header -->
         @include('web.includes.header')
         <!-- /.header -->
@@ -37,7 +37,7 @@
         @include('web.includes.footer')
         <!-- /. footer -->
 
-    </div>
+    <!-- </div> -->
     <!-- /. theme-layout -->
 
     <!-- scripts -->
