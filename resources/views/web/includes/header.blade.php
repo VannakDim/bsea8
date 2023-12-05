@@ -89,13 +89,13 @@
                 <ul class="dropdown__menu">
                   <li>
                       <a href="{{ route('tagsPage') }}" class="dropdown__link">
-                        <i class="ri-pie-chart-line"></i> Tags
+                      <i class="ri-pushpin-line"></i> Tags
                       </a>                          
                   </li>
 
                   <li>
                       <a href="{{ route('categoriesPage') }}" class="dropdown__link">
-                        <i class="ri-arrow-up-down-line"></i> Categories
+                        <i class="ri-file-list-line"></i> Categories
                       </a>
                   </li>
 
@@ -142,22 +142,20 @@
             </div>
                 <ul class="dropdown__menu">
                   <li>
+                    @if(Auth::check())
+                    <li>
+                    <a class="dropdown__link" href="{{ route('dashboard.dashboardPage') }}" title="Dashboard"><i class="ri-dashboard-3-line"></i> Dashboard</a>
+                    </li>
+                    <li><a class="dropdown__link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="ri-logout-box-line"></i> Logout</a></li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      {{ csrf_field() }}
+                    </form>
+                    @else
                       <a href="{{ route('login') }}" class="dropdown__link">
                         <i class="ri-user-line"></i> Login
                       </a>                          
+                    @endif
                   </li>
-
-                  <li>
-                      <a href="#" class="dropdown__link">
-                        <i class="ri-lock-line"></i> Accounts
-                      </a>
-                  </li>
-
-                  <!-- <li>
-                      <a href="#" class="dropdown__link">
-                        <i class="ri-message-3-line"></i> Messages
-                      </a>
-                  </li> -->
                 </ul>
             </li>
 
@@ -165,3 +163,5 @@
       </div>
     </nav>
   </header>
+
+  <!-- <i class="ri-dashboard-3-line"></i> -->
