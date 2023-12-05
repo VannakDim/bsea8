@@ -77,15 +77,7 @@
     </div>
     <!--/END NEWSLETTER-->
 
-    <div class="widget newsletter">
-        <h4>
-            <i class="ti-eye"></i>
-            VISITOR:
-        </h4>
-         <a href='https://www.free-counters.org/'>www.Free-Counters.org</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=c038c5c235908f8a05fbb360f4c382fa66d4687b'></script>
-<script type="text/javascript" src="https://freevisitorcounters.com/en/home/counter/1038325/t/5"></script>
-    </div>
-
+    
     <!--Facebook Page-->
     @if(!empty($setting->facebook))
     <div class="widget">
@@ -97,15 +89,22 @@
         <div id="fb-root"></div>
         <script type="text/javascript">
             (function(d, s, id) {
-              var js, fjs = d.getElementsByTagName(s)[0];
-              if (d.getElementById(id)) return;
-              js = d.createElement(s); js.id = id;
-              js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12&appId=1227264524030761&autoLogAppEvents=1';
-              fjs.parentNode.insertBefore(js, fjs);
-          }(document, 'script', 'facebook-jssdk'));
-      </script>
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12&appId=1227264524030761&autoLogAppEvents=1';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+            </script>
   </div>
   @endif
   <!--/Facebook Page-->
+
+  <!-- Visit Counter -->
+  <div class="widget">
+      <!-- <a href='https://www.easybooking.eu/produkte/julia-hotelsoftware'></a> <script type='text/javascript' src='https://whomania.com/ctr?id=b25d2f9cbb3a3c9a7a3e3f2c771042c650c727c7'></script> -->
+      <script type="text/javascript" src="https://www.free-counters.org/count/de9b"></script><br>
+  </div>
+  <!-- /Visit Counter -->
 </aside>
 </div>
