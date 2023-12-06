@@ -56,7 +56,7 @@ display:block; }
 	</div>
 	<div class="blog-single">
 		<div class="post-head">
-			<h1>{{ $post->post_title }}</h1>
+			<h4 id="post-title">{{ $post->post_title }}</h4>
 			<div class="single-post-info">
 				<div class="pull-left post-author">
 					@if(!empty($post->user->avatar))
@@ -243,6 +243,12 @@ display:block; }
 	#relate-post-title{
 		font-size: 1rem;
 	}
+
+	#post-title{
+		padding: 20px 0;
+		font-weight: bold;
+	}
+
 </style>
 
 @section('script')

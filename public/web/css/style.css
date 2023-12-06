@@ -3917,7 +3917,7 @@ small {
     /* Space */
     .space {
         float: left;
-        padding: 110px 0;
+        padding: 110px 20px;
         position: relative;
         width: 100%;
     }
