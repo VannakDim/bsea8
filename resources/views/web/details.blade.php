@@ -126,16 +126,17 @@ display:block; }
 		<div class="single-title">
 			<h4><i class="fa fa-thumbs-o-up"></i> You May Also Like</h4>
 		</div>
-		<div class="category-recent-post">
+		<!-- <div class="category-recent-post"> -->
 			@foreach($related_posts->chunk(3) as $items)
 			<div class="progress-unit">
 				@foreach($items as $related_post)
-				<div class="col-md-4 col-sm-12">
+				<div class="col-md-4 col-sm-6">
 					<div class="pp-trending-grid">
+					<a href="{{ route('detailsPage', $related_post->post_slug) }}" title="">
 						<img src="{{ get_featured_image_thumbnail_url($related_post->featured_image) }}" alt="maro news">
 						<div class="pp-trend-meta">
-							<h5><a href="{{ route('detailsPage', $related_post->post_slug) }}" title="">
-									{{ \Illuminate\Support\Str::limit($related_post->post_title, 50, '...') }}
+							<h5 id="relate-post-title">
+									{{ \Illuminate\Support\Str::limit($related_post->post_title, 30, '...') }}
 								</a></h5>
 						</div>
 					</div>
@@ -143,7 +144,7 @@ display:block; }
 				@endforeach
 			</div>
 			@endforeach
-		</div>
+		<!-- </div> -->
 	</div>
 
 	<div class="space no-top comments-sec">
@@ -155,9 +156,9 @@ display:block; }
 			<li>
 				<div class="comment">
 					@if(!empty($comment->user->avatar))
-					<img alt="{{ $comment->user->name }}" src="{{ asset('avatar/' . $comment->user->avatar) }}" width="70px">
+					<img alt="{{ $comment->user->name }}" src="{{ asset('avatar/' . $comment->user->avatar) }}" width="50px">
 					@else
-					<img alt="{{ $comment->user->name }}" src="{{ get_gravatar($comment->user->email) }}" width="70px">
+					<img alt="{{ $comment->user->name }}" src="{{ get_gravatar($comment->user->email) }}" width="50px">
 					@endif
 					<div class="comment-detail">
 						<h4><a title="" href="#">{{ $comment->user->name }}</a></h4><span>{{ date("d F Y - h:ia", strtotime($comment->created_at)) }}</span>
@@ -173,9 +174,9 @@ display:block; }
 					<li>
 						<div class="comment">
 							@if(!empty($sub_comment->user->avatar))
-							<img alt="{{ $sub_comment->user->name }}" src="{{ asset('avatar/' . $sub_comment->user->avatar) }}" width="70px">
+							<img alt="{{ $sub_comment->user->name }}" src="{{ asset('avatar/' . $sub_comment->user->avatar) }}" width="50px">
 							@else
-							<img alt="{{ $sub_comment->user->name }}" src="{{ get_gravatar($sub_comment->user->email) }}" width="70px">
+							<img alt="{{ $sub_comment->user->name }}" src="{{ get_gravatar($sub_comment->user->email) }}" width="50px">
 							@endif
 							<div class="comment-detail">
 								<h4><a title="" href="#">{{ $sub_comment->user->name }}</a></h4><span>{{ date("d F Y - h:ia", strtotime($sub_comment->created_at)) }}</span>
@@ -237,6 +238,12 @@ display:block; }
 @section('sidebar')
 @include('web.includes.sidebar')
 @endsection
+
+<style>
+	#relate-post-title{
+		font-size: 1rem;
+	}
+</style>
 
 @section('script')
 <script type="text/javascript">

@@ -89,7 +89,7 @@
                 <ul class="dropdown__menu">
                   <li>
                       <a href="{{ route('tagsPage') }}" class="dropdown__link">
-                      <i class="ri-pushpin-line"></i> Tags
+                      <i class="fa fa-tag"></i> Tags
                       </a>                          
                   </li>
 
