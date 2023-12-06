@@ -49,9 +49,9 @@ display:block; }
 <div class="col-md-8">
 	<div class="crumb inner-page-crumb">
 		<ul>
-			<li><i class="ti-home"></i><a href="{{ route('homePage') }}">Home</a> / </li>
-			<li><a href="{{ route('categoryPage', $post->category->id) }}" title="{{ $post->category->category_name }}">{{ $post->category->category_name }}</a> / </li>
-			<li><a class="active">{{ $post->post_title }}</a></li>
+			<li><i class="ti-home"></i><a href="{{ route('homePage') }}">Home</a> /</li>
+			<li><a href="{{ route('categoryPage', $post->category->id) }}" title="{{ $post->category->category_name }}">{{ $post->category->category_name }}</a> /</li>
+			<li><a class="active">{{ \Illuminate\Support\Str::limit($post->post_title, 35, '...') }}</a></li>
 		</ul>
 	</div>
 	<div class="blog-single">
