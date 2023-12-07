@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Member;
+use App\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
@@ -21,6 +22,11 @@ class MemberController extends Controller
     {
         return view('admin.member.index'); 
     }
+
+    public function create() {
+		$types = Type::all();
+		return view('admin.member.create', compact('types'));
+	}
 
     public function get()
     {

@@ -1,11 +1,16 @@
 <?php
 
+
+use App\Member;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
  */
-
+Route::get('/member', function(){
+	$members = Member::with('types')->get();
+	return view('web.member', compact('members'));
+});
 Route::group(['prefix' => '/'], function () {
 	// Route::view('/home','web.index');
 	Route::get('/', ['as' => 'homePage', 'uses' => 'WebController@index']);

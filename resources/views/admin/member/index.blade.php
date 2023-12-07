@@ -35,7 +35,8 @@
 			<h3 class="box-title">Manage Members</h3>
 
 			<div class="box-tools">
-				<button type="button" class="btn btn-info btn-sm btn-flat add-button"><i class="fa fa-plus"></i> Add Member</button>
+				{{-- <button type="button" class="btn btn-info btn-sm btn-flat add-button"><i class="fa fa-plus"></i> Add Member</button> --}}
+				<a href="{{ route('admin.members.create') }}" class="btn btn-info btn-sm btn-flat"><i class="fa fa-plus"></i> Add Member</a>
 			</div>
 		</div>
 		<!-- /.box-header -->
