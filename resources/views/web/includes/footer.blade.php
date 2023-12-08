@@ -48,7 +48,7 @@ hr{
                 <div class="clearfix"></div>
                 <hr class="hr">
                 <a href="{{ $setting->facebook }}">Facebook</a><br>
-                <!-- <a href="{{ $setting->twitter }}">Twitter</a><br> -->
+                <a href="{{ $setting->telegram }}">Telegram</a><br>
                 <!-- <a href="{{ $setting->google_plus }}">Google+</a><br> -->
                 <!-- <a href="{{ $setting->linkedin }}">Linkedin</a><br> -->
                 <div class="clearfix visible-xs"><br></div>

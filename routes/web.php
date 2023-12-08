@@ -7,10 +7,11 @@ use App\Member;
 | Web Routes
 |--------------------------------------------------------------------------
  */
-Route::get('/member', function(){
-	$members = Member::with('types')->get();
-	return view('web.member', compact('members'));
-});
+// Route::get('/member', function(){
+// 	$members = Member::with('types')->get();
+// 	return view('web.member', compact('members'));
+// });
+
 Route::group(['prefix' => '/'], function () {
 	// Route::view('/home','web.index');
 	Route::get('/', ['as' => 'homePage', 'uses' => 'WebController@index']);
@@ -20,6 +21,7 @@ Route::group(['prefix' => '/'], function () {
 	Route::get('/gallery', ['as' => 'galleryPage', 'uses' => 'WebController@gallery']);
 	Route::get('/get-gallery-image/{id}', ['as' => 'getGalleryRoute', 'uses' => 'WebController@get_gallery_image']);
 	Route::get('/contact-us', ['as' => 'contactUsPage', 'uses' => 'WebController@contact_us']);
+	Route::get('/member', ['as' => 'member', 'uses' => 'WebController@member']);
 
 	Route::get('/page/{slug}', ['as' => 'pagePage', 'uses' => 'WebController@page'])->where('slug', '[\w\d\-\_]+');
 

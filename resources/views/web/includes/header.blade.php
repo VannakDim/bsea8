@@ -128,7 +128,7 @@
                 </ul>
             </li>
 
-            <li><a href="#" class="nav__link">Members</a></li>
+            <li><a href="{{ route('member') }}" class="nav__link">Members</a></li>
             
             <li><a href="#" class="nav__link">Download</a></li>
             

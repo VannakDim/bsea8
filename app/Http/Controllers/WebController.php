@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Banner;
 use App\Category;
 use App\Comment;
+use App\Country;
+use App\Member;
 use App\Gallery;
 use App\Page;
 use App\Post;
@@ -126,6 +128,12 @@ class WebController extends Controller {
 		} else {
 			return response()->view('errors.404');
 		}
+	}
+
+	public function member() {
+		$countries=Country::all();
+		$members=Member::all();
+		return view('web.member',compact('countries','members'));
 	}
 
 	public function comment(Request $request, $post_id) {
