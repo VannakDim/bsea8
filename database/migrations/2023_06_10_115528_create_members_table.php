@@ -18,12 +18,12 @@ class CreateMembersTable extends Migration
             $table->integer('user_id')->unsigned()->index();
 			$table->string('company');
 			$table->string('company_logo')->nullable();
-			$table->string('owner_from')->nullable();
+			$table->string('country_id')->nullable();
 			$table->string('telephone')->nullable();
 			$table->string('email')->nullable();
-			$table->string('category')->nullable();
+			$table->string('product_id')->nullable();
 			$table->string('number_of_worker')->nullable();
-			$table->string('location')->nullable();
+			$table->string('address')->nullable();
 			$table->string('map')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

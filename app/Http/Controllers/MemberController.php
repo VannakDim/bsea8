@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Member;
 use App\Type;
+use App\Product;
+use App\Country;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
@@ -25,9 +27,13 @@ class MemberController extends Controller
 
     public function create() {
 		$types = Type::all();
-		return view('admin.member.create', compact('types'));
+		$products = Product::all();
+		$countries = Country::all();
+		return view('admin.member.create', compact('types','countries','products'));
 	}
 
+
+    // Collecting data to view
     public function get()
     {
         $members = Member::all();
@@ -38,7 +44,15 @@ class MemberController extends Controller
             ->addColumn('username', function ($members) {
                 return '<a class="user-view-button" role="button" tabindex="0" data-id="' . $members->user->id . '">' . $members->user->name . '</a>';
             })
-            
+
+            ->addColumn('owner_from', function ($members) {
+                return '<a class="user-view-button" role="button" tabindex="0" data-id="' . $members->country->id . '">' . $members->country->country . '</a>';
+            })
+
+            ->addColumn('product', function ($members) {
+                return '<a class="user-view-button" role="button" tabindex="0" data-id="' . $members->product->id . '">' . $members->product->title . '</a>';
+            })
+
             ->addColumn('action', function ($members) {
                 $is_demo = '';
                 if (!is_null(is_demo_admin())) {
@@ -52,7 +66,7 @@ class MemberController extends Controller
                 }
                 return '<img src="' . get_member_image_url('no_image.jpg') . '" width="60" class="img img-thumbnail img-responsive">';
             })
-            ->rawColumns(['username', 'company_logo',  'action'])
+            ->rawColumns(['username', 'owner_from', 'company_logo', 'product', 'number_of_worker',  'action'])
             ->setRowId('id')
             ->make(true);
     }
@@ -71,16 +85,23 @@ class MemberController extends Controller
             $member = Member::create([
                 'user_id' => Auth::user()->id,
                 'company' => $request->input('company'),
-                'owner_from' => $request->input('owner_from'),
+                'product_id' => $request->input('product'),
                 'telephone' => $request->input('telephone'),
                 'email' => $request->input('email'),
+                'country_id' => $request->input('country'),
                 'number_of_worker' => $request->input('number_of_worker'),
-                'location' => $request->input('location'),
+                'address' => $request->input('address'),
                 'map' => $request->input('map'),
             ]);
 
-            if ($request->hasFile('image')) {
-                $image = $request->file('image');
+            if (isset($request->types)) {
+                $member->types()->sync($request->types, false);
+            } else {
+                $member->types()->sync(array());
+            }
+
+            if ($request->hasFile('member_image')) {
+                $image = $request->file('member_image');
                 $file_name = $this->image($member->id, $image);
                 Member::find($member->id)->update(['company_logo' => $file_name]);
             }
@@ -91,9 +112,9 @@ class MemberController extends Controller
                 $request->session()->flash('exception', 'Operation failed !');
             }
 
-            return Response::json(['success' => '1']);
+            return redirect()->back()->with('message', 'Member add successfully.');
         }
-        return Response::json(['errors' => $validator->errors()]);
+        // return Response::json(['errors' => $validator->errors()]);
     }
 
     public function image($id, $image)

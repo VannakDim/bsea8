@@ -71,34 +71,64 @@
 			<form name="post_add_form" class="form-horizontal" action="{{ route('admin.members.store') }}" method="post" enctype="multipart/form-data">
 				{{ csrf_field() }}
 				<div class="form-group{{ $errors->has('post_title') ? ' has-error' : '' }}">
-					<label for="post_title" class="col-md-2 control-label">Company</label>
+					<label for="company" class="col-md-2 control-label">Company</label>
 					<div class="col-md-9">
-						<input type="text" name="post_title" class="form-control" id="post_title" value="{{ old('post_title') }}" placeholder="ex: company title">
-						@if ($errors->has('post_title'))
+						<input type="text" name="company" class="form-control" id="company" value="{{ old('company') }}" placeholder="ex: company title">
+						@if ($errors->has('company'))
 						<span class="help-block">
-							<strong>{{ $errors->first('post_title') }}</strong>
+							<strong>{{ $errors->first('company') }}</strong>
 						</span>
 						@endif
 					</div>
 				</div>
-				<div class="form-group{{ $errors->has('post_slug') ? ' has-error' : '' }}">
-					<label for="post_slug" class="col-md-2 control-label">Company Slug</label>
+				<div class="form-group{{ $errors->has('telephone') ? ' has-error' : '' }}">
+					<label for="post_slug" class="col-md-2 control-label">Telephone</label>
 					<div class="col-md-9">
-						<input type="text" name="post_slug" class="form-control" id="post_slug" value="{{ old('post_slug') }}" placeholder="ex: company-slug">
-						@if ($errors->has('post_slug'))
+						<input type="text" name="telephone" class="form-control" id="telephone" value="{{ old('telephone') }}" placeholder="ex: telephone">
+						@if ($errors->has('telephone'))
 						<span class="help-block">
-							<strong>{{ $errors->first('post_slug') }}</strong>
+							<strong>{{ $errors->first('telephone') }}</strong>
 						</span>
 						@endif
 					</div>
 				</div>
-				<div class="form-group{{ $errors->has('number_worker') ? ' has-error' : '' }}">
-					<label for="number_worker" class="col-md-2 control-label">Number of Workers</label>
+				<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+					<label for="post_slug" class="col-md-2 control-label">Email</label>
 					<div class="col-md-9">
-						<input type="text" name="number_worker" class="form-control" id="number_worker" value="{{ old('number_worker') }}" placeholder="ex: 1000">
-						@if ($errors->has('number_worker'))
+						<input type="email" name="email" class="form-control" id="email" value="{{ old('email') }}" placeholder="ex: your@email.com">
+						@if ($errors->has('email'))
 						<span class="help-block">
-							<strong>{{ $errors->first('number_worker') }}</strong>
+							<strong>{{ $errors->first('email') }}</strong>
+						</span>
+						@endif
+					</div>
+				</div>
+
+                {{-- Number of workers --}}
+				<div class="form-group{{ $errors->has('number_of_worker') ? ' has-error' : '' }}">
+					<label for="number_of_worker" class="col-md-2 control-label">Number of Workers</label>
+					<div class="col-md-9">
+						<input type="text" name="number_of_worker" class="form-control" id="number_of_worker" value="{{ old('number of worker') }}" placeholder="ex: 1000">
+						@if ($errors->has('number_of_worker'))
+						<span class="help-block">
+							<strong>{{ $errors->first('number_of_worker') }}</strong>
+						</span>
+						@endif
+					</div>
+				</div>
+
+				<div class="form-group{{ $errors->has('owner') ? ' has-error' : '' }}">
+					<label for="owner" class="col-md-2 control-label">Owner from</label>
+					<div class="col-md-5">
+						<select name="country" class="form-control" id="country_id">
+							<option value="" selected disabled>Select One</option>
+							@foreach($countries as $country)
+							<option value="{{ $country->id }}">{{ $country->country }}</option>
+							@endforeach
+						</select>
+						@if ($errors->has('country_id'))
+						<span class="help-block">
+							<strong>{{ $errors->first('country_id') }}</strong>
 						</span>
 						@endif
 					</div>
@@ -106,11 +136,11 @@
 				<div class="form-group{{ $errors->has('category_id') ? ' has-error' : '' }}">
 					<label for="category_id" class="col-md-2 control-label">Product</label>
 					<div class="col-md-5">
-						<select name="category_id" class="form-control" id="category_id">
+						<select name="product" class="form-control" id="category_id">
 							<option value="" selected disabled>Select One</option>
-							{{-- @foreach($categories as $category)
-							<option value="{{ $category->id }}">{{ $category->category_name}}</option>
-							@endforeach --}}
+							@foreach($products as $product)
+							<option value="{{ $product->id }}">{{ $product->title}}</option>
+							@endforeach
 						</select>
 						@if ($errors->has('category_id'))
 						<span class="help-block">
@@ -119,128 +149,64 @@
 						@endif
 					</div>
 				</div>
-				{{-- <div class="form-group{{ $errors->has('post_date') ? ' has-error' : '' }}">
-					<label for="post_date" class="col-md-2 control-label">Post Date</label>
-					<div class="col-md-5">
-						<div class="input-group date">
-							<div class="input-group-addon">
-								<i class="fa fa-calendar"></i>
-							</div>
-							<input type="text" name="post_date" class="form-control pull-right" id="post_date">
-						</div>
-						@if ($errors->has('post_date'))
-						<span class="help-block">
-							<strong>{{ $errors->first('post_date') }}</strong>
-						</span>
-						@endif
-					</div>
-				</div> --}}
 
-				<div class="form-group{{ $errors->has('publication_status') ? ' has-error' : '' }}">
-					<label for="publication_status" class="col-md-2 control-label">Publication Status</label>
+				<div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
+					<label for="type" class="col-md-2 control-label">Process Types</label>
 					<div class="col-md-5">
-						<select name="publication_status" class="form-control" id="publication_status">
-							<option value="" selected disabled>Select One</option>
-							<option value="1">Published</option>
-							<option value="0">Unpublished</option>
-						</select>
-						@if ($errors->has('publication_status'))
-						<span class="help-block">
-							<strong>{{ $errors->first('publication_status') }}</strong>
-						</span>
-						@endif
-					</div>
-				</div>
-				{{-- <div class="form-group{{ $errors->has('is_featured') ? ' has-error' : '' }}">
-					<label for="is_featured" class="col-md-2 control-label">Is Featured ?</label>
-					<div class="col-md-9">
-						<label class="radio-inline">
-							<input type="radio" name="is_featured" id="is_featured_1" value="1" {{ old('is_featured') == 1 ? 'checked' : '' }}>Yes
-						</label>
-						<label class="radio-inline">
-							<input type="radio" name="is_featured" id="is_featured_2" value="0" {{ old('is_featured') == 0 ? 'checked' : '' }}>No
-						</label>
-						@if ($errors->has('is_featured'))
-						<span class="help-block">
-							<strong>{{ $errors->first('is_featured') }}</strong>
-						</span>
-						@endif
-					</div>
-				</div> --}}
-				<div class="form-group{{ $errors->has('featured_image') ? ' has-error' : '' }}">
-					<label for="featured_image" class="col-md-2 control-label">Company logo</label>
-					<div class="col-md-5">
-						<input type="file" name="featured_image" id="featured_image" class="form-control">
-						<p class="help-block">Example block-level help text here.</p>
-						@if ($errors->has('featured_image'))
-						<span class="help-block">
-							<strong>{{ $errors->first('featured_image') }}</strong>
-						</span>
-						@endif
-					</div>
-				</div>
-
-				<div class="form-group{{ $errors->has('post_tags') ? ' has-error' : '' }}">
-					<label for="post_tags" class="col-md-2 control-label">Process Types</label>
-					<div class="col-md-9">
-						<select class="form-control select2-post-tag" name="post_tags[]" multiple="multiple" id="post_tags">
+						<select class="form-control select2-post-tag" name="types[]" multiple="multiple" id="type">
 							<option disabled>Precess type</option>
 							@foreach($types as $type)
 							<option value="{{ $type->id }}">{{ $type->title }}</option>
 							@endforeach
 						</select>
-						@if ($errors->has('post_tags'))
+						@if ($errors->has('type'))
 						<span class="help-block">
-							<strong>{{ $errors->first('post_tags') }}</strong>
+							<strong>{{ $errors->first('type') }}</strong>
 						</span>
 						@endif
 					</div>
 				</div>
 
-				<div class="form-group{{ $errors->has('post_title') ? ' has-error' : '' }}">
-					<label class="col-md-2 control-label"></label>
-					<div class="col-md-9">
-						<div class="bs-callout bs-callout-success">
-							<h4>SEO Information</h4>
-						</div>
-					</div>
-				</div>
-				<div class="form-group{{ $errors->has('meta_title') ? ' has-error' : '' }}">
-					<label for="meta_title" class="col-md-2 control-label">Meta Title</label>
-					<div class="col-md-9">
-						<input type="text" name="meta_title" class="form-control" id="meta_title" value="{{ old('meta_title') }}" placeholder="ex: company title">
-						@if ($errors->has('meta_title'))
+				<div class="form-group{{ $errors->has('member_image') ? ' has-error' : '' }}">
+					<label for="member_image" class="col-md-2 control-label">Company logo</label>
+					<div class="col-md-5">
+						<input type="file" name="member_image" id="member_image" class="form-control">
+						<p class="help-block">Example block-level help text here.</p>
+						@if ($errors->has('member_image'))
 						<span class="help-block">
-							<strong>{{ $errors->first('meta_title') }}</strong>
+							<strong>{{ $errors->first('member_image') }}</strong>
 						</span>
 						@endif
 					</div>
 				</div>
-				<div class="form-group{{ $errors->has('meta_keywords') ? ' has-error' : '' }}">
-					<label for="meta_keywords" class="col-md-2 control-label">Meta Keywords</label>
+
+                <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+					<label for="post_slug" class="col-md-2 control-label">Address</label>
 					<div class="col-md-9">
-						<input type="text" name="meta_keywords" class="form-control" id="meta_keywords" value="{{ old('meta_keywords') }}" placeholder="ex: company, title">
-						@if ($errors->has('meta_keywords'))
+						<input type="text" name="address" class="form-control" id="address" value="{{ old('address') }}" placeholder="ex: Address">
+						@if ($errors->has('address'))
 						<span class="help-block">
-							<strong>{{ $errors->first('meta_keywords') }}</strong>
+							<strong>{{ $errors->first('address') }}</strong>
 						</span>
 						@endif
 					</div>
 				</div>
-				<div class="form-group{{ $errors->has('meta_description') ? ' has-error' : '' }}">
-					<label for="meta_description" class="col-md-2 control-label">Meta Description</label>
+
+                <div class="form-group{{ $errors->has('map') ? ' has-error' : '' }}">
+					<label for="post_slug" class="col-md-2 control-label">Map</label>
 					<div class="col-md-9">
-						<textarea name="meta_description" id="meta_description" class="form-control" rows="3" placeholder="ex: company dscription">{{ old('meta_description') }}</textarea>
-						@if ($errors->has('meta_description'))
+						<input type="text" name="map" class="form-control" id="map" value="{{ old('map') }}" placeholder="ex: Map">
+						@if ($errors->has('map'))
 						<span class="help-block">
-							<strong>{{ $errors->first('meta_description') }}</strong>
+							<strong>{{ $errors->first('map') }}</strong>
 						</span>
 						@endif
 					</div>
 				</div>
+
 				<div class="form-group">
 					<div class="col-md-offset-2 col-md-10">
-						<button type="submit" class="btn btn-info btn-flat" {{ is_null(is_demo_admin()) ? '' : 'disabled'}}>Add Post</button>
+						<button type="submit" class="btn btn-info btn-flat" {{ is_null(is_demo_admin()) ? '' : 'disabled'}}>Add Member</button>
 					</div>
 				</div>
 			</form>

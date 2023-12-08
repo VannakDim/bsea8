@@ -11,12 +11,12 @@ class Member extends Model
 		'user_id',
 		'company',
         'company_logo',
-        'owner_from',
+        'country_id',
         'telephone',
         'email',
-        'category',
+        'product_id',
         'number_of_worker',
-        'location',
+        'address',
         'map',
 	];
 
@@ -24,9 +24,21 @@ class Member extends Model
 	{
 		return $this->belongsTo(User::class);
 	}
+    
+    public function country()
+	{
+		return $this->belongsTo(Country::class);
+	}
+
+    public function product()
+	{
+		return $this->belongsTo(Product::class);
+	}
 
     public function types()
 	{
 		return $this->belongsToMany(Type::class);
 	}
+
+
 }
