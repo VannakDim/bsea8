@@ -46,27 +46,7 @@
 		<div class="pagination">{{ $posts->links() }}</div>
 	</div>
 
-	<div class="single-related">
-		<div class="single-title">
-			<h4><i class="fa fa-thumbs-o-up"></i> Most Popular Posts</h4>
-		</div>
-		<div class="category-recent-post">
-			@foreach($popular_posts->chunk(3) as $items)
-			<div class="progress-unit">
-				@foreach($items as $popular_post)
-				<div class="col-md-4 col-sm-12">
-					<div class="pp-trending-grid">
-						<img src="{{ get_featured_image_thumbnail_url($popular_post->featured_image) }}" alt="maro news">
-						<div class="pp-trend-meta">
-							<h5><a href="{{ route('detailsPage', $popular_post->post_slug) }}" title="">{{ \Illuminate\Support\Str::limit($popular_post->post_title, 50) }}</a></h5>
-						</div>
-					</div>
-				</div>
-				@endforeach
-			</div>
-			@endforeach
-		</div>
-	</div>
+
 </div>
 @endsection
 
