@@ -60,14 +60,16 @@ display:block; }
 			@foreach ($members as $member)
 			<div class="author">
 					
-				<div class="author-avatar">
-					@if(!empty($member->user->avatar))
-					<img src="{{ get_member_image_url($member->company_logo) }}" alt="maro news" width="90px"> 
-					@else
-					<img src="{{ get_member_image_url($member->company_logo) }}" alt="maro news" width="90px"> 
-					@endif
-				</div>
+
 				<div class="author-about">
+
+					<div class="company-logo">
+						@if(!empty($member->user->avatar))
+						<img src="{{ get_member_image_url($member->company_logo) }}" alt="maro news" width="90px"> 
+						@else
+						<img src="{{ get_member_image_url($member->company_logo) }}" alt="maro news" width="90px"> 
+						@endif
+					</div>
 					<h4 id="company"><a href="#">{{ $member->company }}</a></h4>
 					<p><a href="{{ $member->map }}"><i class="ri-map-pin-line"></i>{{ $member->address }}</a> &nbsp; </p>
 					<p>Process type: <a id="member-product" href="#">{{ $member->product->title }}</a> &nbsp; </p>
@@ -118,6 +120,15 @@ display:block; }
 		padding: 5px;
 		background: #007bbd;
 		color: #ffffff
+	}
+	.company-logo{
+		
+	}
+	.company-logo img{
+		border-radius: 20px;
+		display: flex;
+		box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2);
+		margin: 0 0 20px 0; 
 	}
 
 </style>
