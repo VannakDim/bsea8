@@ -47,7 +47,7 @@
 								<th>Company</th>
 								<th>Logo</th>
 								<th>Owner from</th>
-								<th>Product</th>
+								<th>Type</th>
 								<th>Workers</th>
 								<th>Telephone</th>
 								<th>Created By</th>
@@ -150,7 +150,7 @@
 				{data: 'company'},
 				{data: 'company_logo'},
 				{data: 'owner_from'},
-				{data: 'product'},
+				{data: 'type'},
 				{data: 'number_of_worker'},
 				{data: 'telephone'}, 
 				{data: 'username', name: 'username', orderable: true, searchable: true},

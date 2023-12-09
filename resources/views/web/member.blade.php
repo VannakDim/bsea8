@@ -11,6 +11,7 @@ use Carbon\Carbon;
 @section('style')
 {{-- <meta property="og:image" content="{{ get_featured_image_thumbnail_url($post->featured_image) }}"> --}}
 <!-- Social Share: http://js-socials.com/demos/ -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jsSocials/1.5.0/jssocials.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jsSocials/1.5.0/jssocials-theme-flat.css">
 <style type="text/css">
@@ -72,13 +73,13 @@ display:block; }
 					</div>
 					<h4 id="company"><a href="#">{{ $member->company }}</a></h4>
 					<p><a href="{{ $member->map }}"><i class="ri-map-pin-line"></i>{{ $member->address }}</a> &nbsp; </p>
-					<p>Process type: <a id="member-product" href="#">{{ $member->product->title }}</a> &nbsp; </p>
-					@foreach ($member->types as $type)
-						<a href="#" id="member-type">{{ $type->title }}</a>
+					<p>Process type: <a id="member-product" href="#">{{ $member->type->title }}</a> &nbsp; </p>
+					@foreach ($member->products as $product)
+						<a href="#" id="member-type">{{ $product->title }}</a>
 					@endforeach
 					<p>Workers: {{ $member->number_of_worker }} &nbsp; </p>
-					<p>{{ $member->telephone }} &nbsp; </p>
-					<p>{{ $member->email }} &nbsp; </p>
+					<p><i class="fa-solid fa-phone"></i> {{ $member->telephone }} &nbsp; </p>
+					<p><i class="fa fa-envelope-o" aria-hidden="true"></i> {{ $member->email }} &nbsp; </p>
 					<p>Owner from: <a href="#">{{ $member->country->country }}</a></p>
 				</div>
 			</div>
@@ -121,11 +122,9 @@ display:block; }
 		background: #007bbd;
 		color: #ffffff
 	}
-	.company-logo{
-		
-	}
+
 	.company-logo img{
-		border-radius: 20px;
+		/* border-radius: 20px; */
 		display: flex;
 		box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2);
 		margin: 0 0 20px 0; 

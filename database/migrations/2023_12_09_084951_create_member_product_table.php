@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMemberTypeTable extends Migration
+class CreateMemberProductTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateMemberTypeTable extends Migration
      */
     public function up()
     {
-        Schema::create('member_type', function (Blueprint $table) {
+        Schema::create('member_product', function (Blueprint $table) {
             $table->id();
             $table->integer('member_id');
-            $table->integer('type_id');
+            $table->integer('product_id');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateMemberTypeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('member_type');
+        Schema::dropIfExists('member_product');
     }
 }

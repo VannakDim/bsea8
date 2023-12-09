@@ -49,8 +49,8 @@ class MemberController extends Controller
                 return '<a class="user-view-button" role="button" tabindex="0" data-id="' . $members->country->id . '">' . $members->country->country . '</a>';
             })
 
-            ->addColumn('product', function ($members) {
-                return '<a class="user-view-button" role="button" tabindex="0" data-id="' . $members->product->id . '">' . $members->product->title . '</a>';
+            ->addColumn('type', function ($members) {
+                return '<a class="user-view-button" role="button" tabindex="0" data-id="' . $members->type->id . '">' . $members->type->title . '</a>';
             })
 
             ->addColumn('action', function ($members) {
@@ -66,7 +66,7 @@ class MemberController extends Controller
                 }
                 return '<img src="' . get_member_image_url('no_image.jpg') . '" width="60" class="img img-thumbnail img-responsive">';
             })
-            ->rawColumns(['username', 'owner_from', 'company_logo', 'product', 'number_of_worker',  'action'])
+            ->rawColumns(['username', 'owner_from', 'company_logo', 'type', 'number_of_worker',  'action'])
             ->setRowId('id')
             ->make(true);
     }
@@ -85,7 +85,7 @@ class MemberController extends Controller
             $member = Member::create([
                 'user_id' => Auth::user()->id,
                 'company' => $request->input('company'),
-                'product_id' => $request->input('product'),
+                'type_id' => $request->input('type'),
                 'telephone' => $request->input('telephone'),
                 'email' => $request->input('email'),
                 'country_id' => $request->input('country'),
@@ -94,10 +94,10 @@ class MemberController extends Controller
                 'map' => $request->input('map'),
             ]);
 
-            if (isset($request->types)) {
-                $member->types()->sync($request->types, false);
+            if (isset($request->products)) {
+                $member->product()->sync($request->products, false);
             } else {
-                $member->types()->sync(array());
+                $member->product()->sync(array());
             }
 
             if ($request->hasFile('member_image')) {

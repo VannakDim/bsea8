@@ -1,6 +1,6 @@
 <div class="clearfix"></div>
 <style type="text/css">
-#footer {background: #464646; border-top: 2px #fff solid; color: #fff; padding: 5px 0px; }
+#footer {background: #339bd3; border-top: 2px #fff solid; color: #fff; padding: 15px 0px; }
 .footer-heading {font-size: 18px; font-weight: bold; color: #fff; text-shadow: none;}
 #footer a {
     line-height: 24px;
@@ -9,25 +9,25 @@
 }
 #footer-bottom {background: #7e7e7e; color: #969696; padding: 10px 0px; color: #fff;}
 /* a { color:#fff; } */
-#footer a:hover { color: #969696; }
+#footer a:hover { color: hsl(0, 0%, 59%); }
 hr{
     border-top: 1px #9e9e9e dashed;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 </style>
-<div id="footer" style="">
+<div id="footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            {{-- <div class="col-md-4">
                 <div class="footer-heading">
                     BSEA Info
                 </div>
                 <div class="clearfix"></div>
                 <hr class="hr">
                 <p style="line-height: 24px; color: #fff; margin: 0 0 10px; font-size: 13px; letter-spacing: 0.09px;">{{ $setting->about_us }}</p>
-            </div>
-            <div class="col-md-4">
+            </div> --}}
+            <div class="col-md-6">
                 <div class="footer-heading">
                     Address
                 </div>
@@ -41,19 +41,19 @@ hr{
                 <!-- Fax: {{ $setting->fax }}</p> -->
                 <div class="clearfix visible-xs"><br></div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div class="footer-heading">
                     Social Address
                 </div>
                 <div class="clearfix"></div>
                 <hr class="hr">
-                <a href="{{ $setting->facebook }}">Facebook</a><br>
-                <a href="{{ $setting->telegram }}">Telegram</a><br>
+                <a href="{{ $setting->facebook }}"><i class="ri-facebook-line"></i> Facebook</a><br>
+                <a href="{{ $setting->telegram }}"><i class="ri-telegram-fill"></i> Telegram</a><br>
                 <!-- <a href="{{ $setting->google_plus }}">Google+</a><br> -->
                 <!-- <a href="{{ $setting->linkedin }}">Linkedin</a><br> -->
                 <div class="clearfix visible-xs"><br></div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div class="footer-heading">
                     Company
                 </div>

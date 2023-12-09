@@ -11,8 +11,4 @@ class Type extends Model
 
     protected $fillable=['title'];
 
-    public function members()
-	{
-		return $this->belongsToMany(Member::class);
-	}
 }

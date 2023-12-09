@@ -102,8 +102,7 @@
 
   <!-- Visit Counter -->
   <div class="widget">
-      <!-- <a href='https://www.easybooking.eu/produkte/julia-hotelsoftware'></a> <script type='text/javascript' src='https://whomania.com/ctr?id=b25d2f9cbb3a3c9a7a3e3f2c771042c650c727c7'></script> -->
-      <script type="text/javascript" src="https://www.free-counters.org/count/de9b"></script><br>
+      <script type="text/javascript" src="https://www.free-counters.org/count/de9b"></script>
   </div>
   <!-- /Visit Counter -->
 </aside>

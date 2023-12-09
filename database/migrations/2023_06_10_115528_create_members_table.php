@@ -21,12 +21,15 @@ class CreateMembersTable extends Migration
 			$table->string('country_id')->nullable();
 			$table->string('telephone')->nullable();
 			$table->string('email')->nullable();
-			$table->string('product_id')->nullable();
+			$table->string('type_id')->nullable();
 			$table->string('number_of_worker')->nullable();
 			$table->string('address')->nullable();
 			$table->string('map')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            // $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
+            // $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
         });
     }
 

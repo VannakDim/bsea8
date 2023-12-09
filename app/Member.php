@@ -14,7 +14,7 @@ class Member extends Model
         'country_id',
         'telephone',
         'email',
-        'product_id',
+        'type_id',
         'number_of_worker',
         'address',
         'map',
@@ -30,14 +30,14 @@ class Member extends Model
 		return $this->belongsTo(Country::class);
 	}
 
-    public function product()
+    public function products()
 	{
-		return $this->belongsTo(Product::class);
+		return $this->belongsToMany(Product::class);
 	}
 
-    public function types()
+    public function type()
 	{
-		return $this->belongsToMany(Type::class);
+		return $this->belongsTo(Type::class);
 	}
 
 

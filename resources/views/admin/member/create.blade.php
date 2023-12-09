@@ -133,35 +133,35 @@
 						@endif
 					</div>
 				</div>
-				<div class="form-group{{ $errors->has('category_id') ? ' has-error' : '' }}">
-					<label for="category_id" class="col-md-2 control-label">Product</label>
+				<div class="form-group{{ $errors->has('type_id') ? ' has-error' : '' }}">
+					<label for="type_id" class="col-md-2 control-label">Process type</label>
 					<div class="col-md-5">
-						<select name="product" class="form-control" id="category_id">
+						<select name="type" class="form-control" id="type_id">
 							<option value="" selected disabled>Select One</option>
-							@foreach($products as $product)
-							<option value="{{ $product->id }}">{{ $product->title}}</option>
+							@foreach($types as $type)
+							<option value="{{ $type->id }}">{{ $type->title}}</option>
 							@endforeach
 						</select>
-						@if ($errors->has('category_id'))
+						@if ($errors->has('type_id'))
 						<span class="help-block">
-							<strong>{{ $errors->first('category_id') }}</strong>
+							<strong>{{ $errors->first('type_id') }}</strong>
 						</span>
 						@endif
 					</div>
 				</div>
 
-				<div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
-					<label for="type" class="col-md-2 control-label">Process Types</label>
+				<div class="form-group{{ $errors->has('product') ? ' has-error' : '' }}">
+					<label for="product" class="col-md-2 control-label">Process Types</label>
 					<div class="col-md-5">
-						<select class="form-control select2-post-tag" name="types[]" multiple="multiple" id="type">
-							<option disabled>Precess type</option>
-							@foreach($types as $type)
-							<option value="{{ $type->id }}">{{ $type->title }}</option>
+						<select class="form-control select2-post-tag" name="products[]" multiple="multiple" id="product">
+							<option disabled>Product</option>
+							@foreach($products as $product)
+							<option value="{{ $product->id }}">{{ $product->title }}</option>
 							@endforeach
 						</select>
-						@if ($errors->has('type'))
+						@if ($errors->has('product'))
 						<span class="help-block">
-							<strong>{{ $errors->first('type') }}</strong>
+							<strong>{{ $errors->first('product') }}</strong>
 						</span>
 						@endif
 					</div>
