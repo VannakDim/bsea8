@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title', 'Member')
+@section('title', 'Page')
 
 
 @section('style')
@@ -13,59 +13,56 @@
 	</style>
 @endsection
 
-	@section('content')
-		<!-- Banner header -->
-		<section class="content-header">
-			<h1>
-				Members
-			</h1>
-			<ol class="breadcrumb">
-				<li><a href="{{ route('admin.dashboardRoute') }}"><i class="fa fa-home"></i> Dashboard</a></li>
-				<li class="active">Members</li>
-			</ol>
-		</section>
-		<!-- /.banner header -->	
+@section('content')
+	<!-- Page header -->
+	<section class="content-header">
+		<h1>
+			RESOURCES FOR FREE
+		</h1>
+		<ol class="breadcrumb">
+			<li><a href="{{ route('admin.dashboardRoute') }}"><i class="fa fa-home"></i> Dashboard</a></li>
+			<li class="active">Page</li>
+		</ol>
+	</section>
+	<!-- /.page header -->
 
-		<!-- Main content -->
-		<section class="content">
-			<div class="box">
-				<div class="box-header with-border">
-					<h3 class="box-title">Manage Members</h3>
+	<!-- Main content -->
+	<section class="content">
+		<div class="box">
+			<div class="box-header with-border">
+				<h3 class="box-title">Manage Resources</h3>
 
-					<div class="box-tools">
-						{{-- <button type="button" class="btn btn-info btn-sm btn-flat add-button"><i class="fa fa-plus"></i> Add Member</button> --}}
-						<a href="{{ route('admin.members.create') }}" class="btn btn-info btn-sm btn-flat"><i class="fa fa-plus"></i> Add Member</a>
-					</div>
-				</div>
-				<!-- /.box-header -->
-				<div class="box-body">
-					<div style="width: 100%; padding-left: -10px;">
-						<div class="table-responsive">
-							<table id="members-table" class="table table-striped table-hover dt-responsive display nowrap" cellspacing="0">
-								<thead>
-									<tr>
-										<th>Company</th>
-										<th>Logo</th>
-										<th>Owner from</th>
-										<th>Type</th>
-										<th>Workers</th>
-										<th>Telephone</th>
-										<th>Created By</th>
-										<th width="50px">Action</th>
-									</tr>
-								</thead>
-							</table>
-						</div>
-					</div>
-				</div>
-				<!-- /.box-body -->
-				<div class="box-footer clearfix">
+				<div class="box-tools">
+					<a href="{{ route('admin.resources.create') }}" class="btn btn-info btn-sm btn-flat add-button"><i class="fa fa-plus"></i> Add Resource</a>
+					{{-- <button type="button" class="btn btn-info btn-sm btn-flat add-button"><i class="fa fa-plus"></i> Add Resource</button> --}}
 				</div>
 			</div>
-		</section>
-		<!-- /.main content -->			
+			<!-- /.box-header -->
+			<div class="box-body">
+				<div style="width: 100%; padding-left: -10px;">
+					<div class="table-responsive">
+						<table id="resources-table" class="table table-striped table-hover dt-responsive display nowrap" cellspacing="0">
+							<thead>
+								<tr>
+									<th>Title</th>
+									<th>Description</th>
+									<th>Image</th>
+									<th>Created By</th>
+									<th>Created At</th>
+									<th>Updated At</th>
+									<th width="10%">Publication Status</th>
+									<th width="7%">Action</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- /.main content -->
 
-		<!-- delete banner modal -->
+		<!-- delete page modal -->
 		<div id="delete-modal" class="modal modal-danger fade" id="modal-danger">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -93,13 +90,8 @@
 				</div>
 				<!-- /.modal-dialog -->
 			</div>
-			<!-- /.delete banner modal -->
-		
-	
-	@endsection
-
-	@section('script')
-
+@endsection
+@section('script')
 	<script type="text/javascript" src="{{ asset('admin/datatable/js/jquery.dataTables.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('admin/datatable/js/datatables.bootstrap.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('admin/datatable/js/dataTables.buttons.min.js') }}"></script>
@@ -116,12 +108,12 @@
 			get_table_data();
 		});
 
-
+		
 		/** Delete **/
-		$("#members-table").on("click", ".delete-button", function(){
-			var member_id = $(this).data("id");
-			var url = "{{ route('admin.members.destroy', 'member_id') }}";
-			url = url.replace("member_id", member_id);
+		$("#resources-table").on("click", ".delete-button", function(){
+			var page_id = $(this).data("id");
+			var url = "{{ route('admin.resources.destroy', 'page_id') }}";
+			url = url.replace("page_id", page_id);
 			$('#delete-modal').modal('show');
 			$('#delete_form').attr('action', url);
 		});
@@ -129,12 +121,12 @@
 
 		/** Get datatable **/
 		function get_table_data(){
-			$('#members-table').DataTable({
+			$('#resources-table').DataTable({
 				dom: 'Blfrtip',
 				buttons: [
 				{ extend: 'copy', exportOptions: { columns: ':visible'}},
 				{ extend: 'print', exportOptions: { columns: ':visible'}},
-				{ extend: 'pdf', orientation: 'landscape', bannerSize: 'A4', exportOptions: { columns: ':visible'}},
+				{ extend: 'pdf', orientation: 'landscape', pageSize: 'A4', exportOptions: { columns: ':visible'}},
 				{ extend: 'csv', exportOptions: { columns: ':visible'}},
 				{ extend: 'colvis', text:'Column'},
 				],
@@ -145,20 +137,19 @@
 				lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
 				processing: true,
 				serverSide: true,
-				ajax: "{{ route('admin.getMembersRoute') }}",
+				ajax: "{{ route('admin.getResource') }}",
 				columns: [
-				{data: 'company'},
-				{data: 'company_logo'},
-				{data: 'owner_from'},
-				{data: 'type'},
-				{data: 'number_of_worker'},
-				{data: 'telephone'}, 
+				{data: 'title'},
+				{data: 'description'},
+				{data: 'thumbnail'},
 				{data: 'username', name: 'username', orderable: true, searchable: true},
+				{data: 'created_at'},
+				{data: 'updated_at'},
+				{data: 'publication_status', name: 'publication_status', orderable: false, searchable: false},
 				{data: 'action', name: 'action', orderable: false, searchable: false},
 				],
-				// order: [[0, 'desc']],
+				order: [[4, 'desc']],
 			});
 		}
-
 	</script>
 @endsection

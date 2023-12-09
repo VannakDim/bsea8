@@ -118,6 +118,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin'], 'as' => 'a
 	Route::get('/pages/published/{id}', ['as' => 'publishedPagesRoute', 'uses' => 'PageController@published']);
 	Route::get('/pages/unpublished/{id}', ['as' => 'unpublishedPagesRoute', 'uses' => 'PageController@unpublished']);
 
+	/*** For Resource ***/
+	Route::resource('resources', 'ResourceController');
+	Route::get('/get-resource', ['as' => 'getResource', 'uses' => 'ResourceController@get']);
+
+
 	/*** For Gallery ***/
 	Route::resource('galleries', 'GalleryController');
 	Route::get('/get-galleries', ['as' => 'getGalleriesRoute', 'uses' => 'GalleryController@get']);

@@ -24,6 +24,7 @@
         <li><a href="{{ route('admin.posts.index') }}"><i class="fa fa-newspaper-o text-purple"></i> <span>Post</span></a></li>
         <li><a href="{{ route('admin.users.index') }}"><i class="fa fa-users text-purple"></i> <span>User</span></a></li>
         <li><a href="{{ route('admin.members.index') }}"><i class="fa fa-user text-purple"></i> <span>Member</span></a></li>
+        <li><a href="{{ route('admin.resources.index') }}"><i class="fa fa-cloud-download text-purple" aria-hidden="true"></i> <span>Free Resource</span></a></li>
         <li><a href="{{ route('admin.comments.index') }}"><i class="fa fa-comment text-purple"></i> <span>Comment</span></a></li>
         <li><a href="{{ route('admin.subscribers.index') }}"><i class="fa fa-envelope text-purple"></i> <span>Subscriber</span></a></li>
         <li><a href="{{ route('admin.pages.index') }}"><i class="fa fa-file text-purple"></i> <span>Page</span></a></li>

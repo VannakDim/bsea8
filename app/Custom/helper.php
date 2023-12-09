@@ -153,6 +153,43 @@ function get_member_image_path($var = null)
     }
 }
 
+function get_resource_thumbnail_path($var = null)
+{
+    if ($var != null) {
+        return public_path('resource_thumbnail/' . $var . '');
+    } else {
+        return public_path('resource_thumbnail/');
+    }
+}
+
+function get_resource_thumbnail_url($var = null)
+{
+    if ($var != null) {
+        return asset('resource_thumbnail/' . $var . '');
+    } else {
+        return asset('resource_thumbnail/');
+    }
+}
+
+function get_resource_file_path($var = null)
+{
+    if ($var != null) {
+        return public_path('resource_file/' . $var . '');
+    } else {
+        return public_path('resource_file/');
+    }
+}
+function get_resource_file_url($var = null)
+{
+    if ($var != null) {
+        return asset('resource_file/' . $var . '');
+    } else {
+        return asset('resource_file/');
+    }
+}
+
+
+
 function isAdmin()
 {
     $user = Auth::user();
