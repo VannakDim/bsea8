@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title', 'Post')
+@section('title', 'Add resource')
 
 
 @section('style')

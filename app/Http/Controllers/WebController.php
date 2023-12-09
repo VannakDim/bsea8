@@ -6,6 +6,7 @@ use App\Category;
 use App\Comment;
 use App\Country;
 use App\Member;
+use App\Resource;
 use App\Gallery;
 use App\Page;
 use App\Post;
@@ -134,6 +135,11 @@ class WebController extends Controller {
 		$countries=Country::all();
 		$members=Member::all();
 		return view('web.member',compact('countries','members'));
+	}
+
+	public function resource() {
+		$resources = Resource::all();
+		return view('web.resource', compact('resources'));
 	}
 
 	public function comment(Request $request, $post_id) {

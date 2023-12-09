@@ -94,11 +94,9 @@
 				<!-- /.modal-dialog -->
 			</div>
 			<!-- /.delete banner modal -->
-		
-	
-	@endsection
+@endsection
 
-	@section('script')
+@section('script')
 
 	<script type="text/javascript" src="{{ asset('admin/datatable/js/jquery.dataTables.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('admin/datatable/js/datatables.bootstrap.js') }}"></script>

@@ -71,7 +71,7 @@
 
             <li><a href="{{ route('member') }}" class="nav__link">Members</a></li>
             
-            <li><a href="#" class="nav__link">Download</a></li>
+            <li><a href="{{ route('resource') }}" class="nav__link">Download</a></li>
             
 
             <li><a href="{{ route('contactUsPage') }}" class="nav__link">Contact</a></li>

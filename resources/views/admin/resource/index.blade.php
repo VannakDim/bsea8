@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title', 'Page')
+@section('title', 'Public Resources')
 
 
 @section('style')

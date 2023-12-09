@@ -22,6 +22,7 @@ Route::group(['prefix' => '/'], function () {
 	Route::get('/get-gallery-image/{id}', ['as' => 'getGalleryRoute', 'uses' => 'WebController@get_gallery_image']);
 	Route::get('/contact-us', ['as' => 'contactUsPage', 'uses' => 'WebController@contact_us']);
 	Route::get('/member', ['as' => 'member', 'uses' => 'WebController@member']);
+	Route::get('/resource', ['as' => 'resource', 'uses' => 'WebController@resource']);
 
 	Route::get('/page/{slug}', ['as' => 'pagePage', 'uses' => 'WebController@page'])->where('slug', '[\w\d\-\_]+');
 
