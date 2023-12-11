@@ -55,29 +55,20 @@ display:block; }
 		</ul>
 	</div>
 	<div class="blog-single">
-		
-		{{-- <div class="single-post-detail"> --}}
-	
 			@foreach ($resources as $resource)
-			{{-- <div class="author"> --}}
-					
-				<div class="author-about">
-
-					<div class="company-logo">
-						@if(!empty($resource->user->avatar))
-						<img src="{{ get_resource_thumbnail_url($resource->thumbnail) }}" alt="maro news" width="90px"> 
-						@else
-						<img src="{{ get_resource_thumbnail_url($resource->thumbnail) }}" alt="maro news" width="90px"> 
-						@endif
-					</div>
-					<h4 id="company"><a href="#">{{ $resource->title }}</a></h4>
-					<h4 id="description"><a href="#">{{ $resource->description }}</a></h4>
-					<a href="/download/{{ $resource->filename }}">Download</a>
-					
+			<div class="row" style="padding: 10px 0">
+				<div class="col-md-3 company-logo">
+					<img  src="{{ get_resource_thumbnail_url($resource->thumbnail) }}" alt="">
 				</div>
-			{{-- </div> --}}
+				<div class="col-md-7">
+					<h5>{{$resource->title}}</h5>
+					<p>{{$resource->description}}<p>
+				</div>
+				<div class="col-md-2" style="text-align: right">
+					<a href="/download/{{$resource->filename}}"><i class="fa fa-download" aria-hidden="true"></i> Download</a>
+				</div>
+			</div>
 			@endforeach
-		{{-- </div> --}}
 	</div>
 	
 </div>
@@ -119,11 +110,12 @@ display:block; }
 	.company-logo img{
 		/* border-radius: 20px; */
 
-		display: inline;
-		float: left;
+		/* display: inline; */
+		/* float: left; */
 		box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2);
 		margin: 0 0 20px 0; 
 	}
+
 
 </style>
 
