@@ -71,10 +71,18 @@ Version: 1.0
     src: url("/web/fonts/Battambang-Regular.ttf");
 }
 
+
+
 /*================================== 
        COMMON STYLE
 ===================================*/
 html,
+
+:root {
+    --primary: #00B98E;
+    --light: #F3F6F8;
+    --dark: #0E2E50;
+}
 body {
     overflow-x: hidden;
     font-family: Arial;
@@ -1955,8 +1963,33 @@ a.readmore i {
 footer {
     float: left;
     width: 100%;
-    background: #1f2024;
+    /* background: #1f2024; */
     padding: 80px 0px;
+}
+.footer .btn.btn-social {
+    margin-right: 5px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light);
+    border: 1px solid rgba(256, 256, 256, .1);
+    border-radius: 40px;
+    transition: .3s;
+}
+
+.footer {background: #339bd3; border-top: 2px #fff solid; color: #fff; padding: 15px 0px; }
+.footer-heading {font-size: 18px; font-weight: bold; color: #fff; text-shadow: none;}
+.footer a {
+    line-height: 24px;
+    font-size: 13px;
+}
+#footer-bottom {background: #7e7e7e; color: #969696; padding: 10px 0px; color: #fff;}
+
+.footer .btn.btn-social:hover {
+    color: var(--primary);
+    background: white;
 }
 
 .footer-widget {

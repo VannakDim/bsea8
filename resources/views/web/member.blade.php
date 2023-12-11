@@ -54,39 +54,41 @@ display:block; }
 			<li><a class="active">Members</a></li> 
 		</ul>
 	</div>
-	<div class="blog-single">
+
 		
-		<div class="single-post-detail">
-	
+	<div class="container mb-4">
+		<div class="row">
 			@foreach ($members as $member)
-			<div class="author">
-					
-
-				<div class="author-about">
-
-					<div class="company-logo">
-						@if(!empty($member->user->avatar))
-						<img src="{{ get_member_image_url($member->company_logo) }}" alt="maro news" width="90px"> 
-						@else
-						<img src="{{ get_member_image_url($member->company_logo) }}" alt="maro news" width="90px"> 
+				<div class="col-lg-4 col-md-6" style="padding-left: 0%">
+					<div class="team-item">
+						<h5>{{ $member->company }}</h5>
+						<p class="mb-4">{{ $member->address }}</p>
+						@if(!empty($member->company_logo))
+							<img class="img-fluid rounded-circle w-100 mb-4" src="{{ get_member_image_url($member->company_logo) }}" alt="">
+	
 						@endif
+						<p><a id="member-product" href="#">{{ $member->type->title }}</a> &nbsp; </p>
+						@foreach ($member->products as $product)
+							<a href="#" id="member-type">{{ $product->title }}</a>
+						@endforeach
+						<p>Workers: {{ $member->number_of_worker }} &nbsp; </p>
+						<p><i class="fa-solid fa-phone"></i> {{ $member->telephone }} &nbsp; </p>
+						<p><i class="fa fa-envelope-o" aria-hidden="true"></i> {{ $member->email }} &nbsp; </p>
+						<p>Owner from: <a href="#">{{ $member->country->country }}</a></p>
+						{{-- <div class="d-flex justify-content-center">
+							<a class="btn btn-square text-primary bg-white m-1" href=""><i
+									class="fab fa-facebook-f"></i></a>
+							<a class="btn btn-square text-primary bg-white m-1" href=""><i
+									class="fab fa-twitter"></i></a>
+							<a class="btn btn-square text-primary bg-white m-1" href=""><i
+									class="fab fa-linkedin-in"></i></a>
+						</div> --}}
 					</div>
-					<h4 id="company"><a href="#">{{ $member->company }}</a></h4>
-					<p><a href="{{ $member->map }}"><i class="ri-map-pin-line"></i>{{ $member->address }}</a> &nbsp; </p>
-					<p>Process type: <a id="member-product" href="#">{{ $member->type->title }}</a> &nbsp; </p>
-					@foreach ($member->products as $product)
-						<a href="#" id="member-type">{{ $product->title }}</a>
-					@endforeach
-					<p>Workers: {{ $member->number_of_worker }} &nbsp; </p>
-					<p><i class="fa-solid fa-phone"></i> {{ $member->telephone }} &nbsp; </p>
-					<p><i class="fa fa-envelope-o" aria-hidden="true"></i> {{ $member->email }} &nbsp; </p>
-					<p>Owner from: <a href="#">{{ $member->country->country }}</a></p>
 				</div>
-			</div>
 			@endforeach
 		</div>
 	</div>
-	
+		
 </div>
 @endsection
 
@@ -114,20 +116,73 @@ display:block; }
 		padding: 0 5px;
 	}
 
-	#company{
-		margin: 5px 0;
-	}
-	#company a{
-		padding: 5px;
-		background: #007bbd;
-		color: #ffffff
+
+	/*** Team ***/
+	.team-item {
+		position: relative;
+		padding: 30px;
+		text-align: center;
+		transition: .5s;
+		z-index: 1;
 	}
 
-	.company-logo img{
-		/* border-radius: 20px; */
-		display: flex;
-		box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2);
-		margin: 0 0 20px 0; 
+	.team-item a{
+		color: #007bbd;
+	}
+
+	.team-item::before,
+	.team-item::after {
+		position: absolute;
+		content: "";
+		width: 100%;
+		height: 40%;
+		top: 0;
+		left: 0;
+		border-radius: 5px;
+		background: #f9f9f9;
+		box-shadow: 0 0 45px rgba(0, 0, 0, .07);
+		transition: .5s;
+		z-index: -1;
+	}
+
+	.team-item::after {
+		top: auto;
+		bottom: 0;
+	}
+
+	.team-item:hover::before,
+	.team-item:hover::after {
+		background: var(--primary);
+	}
+
+	.team-item h5,
+	.team-item p {
+		transition: .5s;
+	}
+
+	.team-item:hover h5,
+	.team-item:hover p {
+		color: #FFFFFF;
+	}
+
+	.team-item img {
+		padding: 15px;
+		border: 1px solid var(--primary);
+	}
+
+	.rounded-circle{
+		border-radius: 50%;
+	}
+
+	.justify-content-center{
+		justify-content: center;
+	}
+	.mb-4{
+		margin-bottom: 1.5rem;
+	}
+
+	.w-100{
+		width: 100%;
 	}
 
 </style>

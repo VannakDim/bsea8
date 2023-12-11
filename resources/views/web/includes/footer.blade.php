@@ -1,22 +1,22 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 <div class="clearfix"></div>
 <style type="text/css">
-#footer {background: #339bd3; border-top: 2px #fff solid; color: #fff; padding: 15px 0px; }
-.footer-heading {font-size: 18px; font-weight: bold; color: #fff; text-shadow: none;}
-#footer a {
-    line-height: 24px;
-    font-size: 13px;
-    color:#fff;
-}
-#footer-bottom {background: #7e7e7e; color: #969696; padding: 10px 0px; color: #fff;}
-/* a { color:#fff; } */
-#footer a:hover { color: hsl(0, 0%, 59%); }
+
+a { color:#fff; }
+/* #footer a:hover { color: hsl(0, 0%, 59%); } */
 hr{
-    border-top: 1px #9e9e9e dashed;
+    border-top: 1px #d8d6d6 dashed;
     margin-top: 10px;
     margin-bottom: 10px;
 }
+.d-flex{
+    display: flex;
+}
+
 </style>
-<div id="footer">
+
+
+<div id="footer" class="footer">
     <div class="container">
         <div class="row">
             {{-- <div class="col-md-4">
@@ -41,18 +41,17 @@ hr{
                 <!-- Fax: {{ $setting->fax }}</p> -->
                 <div class="clearfix visible-xs"><br></div>
             </div>
-            <div class="col-md-3">
+            {{-- <div class="col-md-6 col-lg-3"> 
                 <div class="footer-heading">
                     Social Address
                 </div>
                 <div class="clearfix"></div>
                 <hr class="hr">
-                <a href="{{ $setting->facebook }}"><i class="ri-facebook-line"></i> Facebook</a><br>
-                <a href="{{ $setting->telegram }}"><i class="ri-telegram-fill"></i> Telegram</a><br>
-                <!-- <a href="{{ $setting->google_plus }}">Google+</a><br> -->
-                <!-- <a href="{{ $setting->linkedin }}">Linkedin</a><br> -->
-                <div class="clearfix visible-xs"><br></div>
-            </div>
+                <div class="d-flex pt-2">
+                    <a class="btn btn-outline-light btn-social" href="{{ $setting->facebook }}"><i class="fab fa-facebook-f"></a>
+                    <a class="btn btn-outline-light btn-social" href="{{ $setting->telegram }}"><i class="fab fa-facebook-f"></a>
+                </div>
+            </div> --}}
             <div class="col-md-3">
                 <div class="footer-heading">
                     Company
@@ -65,9 +64,23 @@ hr{
                 <a href="{{ route('contactUsPage') }}">Contact Us</a><br>
                 <div class="clearfix visible-xs"><br></div>
             </div>
+
+            <div class="col-md-3">
+                <div class="footer-heading">
+                        Social Address
+                </div>
+                <div class="clearfix"></div>
+                <hr class="hr">
+                <div class="d-flex pt-2">
+                    <a class="btn btn-outline-light btn-social" href="{{ $setting->facebook }}"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-social" href="{{ $setting->telegram }}"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
+
 <div class="clearfix"></div>
 <div id="footer-bottom">
     <div class="container">
