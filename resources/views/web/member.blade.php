@@ -65,12 +65,13 @@ display:block; }
 						<p class="mb-4">{{ $member->address }}</p>
 						@if(!empty($member->company_logo))
 							<img class="img-fluid rounded-circle w-100 mb-4" src="{{ get_member_image_url($member->company_logo) }}" alt="">
-	
 						@endif
 						<p><a id="member-product" href="#">{{ $member->type->title }}</a> &nbsp; </p>
+						<p>
 						@foreach ($member->products as $product)
 							<a href="#" id="member-type">{{ $product->title }}</a>
 						@endforeach
+						</p>
 						<p>Workers: {{ $member->number_of_worker }} &nbsp; </p>
 						<p><i class="fa-solid fa-phone"></i> {{ $member->telephone }} &nbsp; </p>
 						<p><i class="fa fa-envelope-o" aria-hidden="true"></i> {{ $member->email }} &nbsp; </p>
