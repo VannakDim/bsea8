@@ -23,6 +23,7 @@ Route::group(['prefix' => '/'], function () {
 	Route::get('/contact-us', ['as' => 'contactUsPage', 'uses' => 'WebController@contact_us']);
 	Route::get('/member', ['as' => 'member', 'uses' => 'WebController@member']);
 	Route::get('/resource', ['as' => 'resource', 'uses' => 'WebController@resource']);
+	Route::get('/download/{id}', 'WebController@download'); 
 
 	Route::get('/page/{slug}', ['as' => 'pagePage', 'uses' => 'WebController@page'])->where('slug', '[\w\d\-\_]+');
 

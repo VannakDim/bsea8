@@ -15,7 +15,7 @@
 
 /*=============== VARIABLES CSS ===============*/
 :root {
-  --header-height: 3.5rem;
+  --header-height: 4.5rem;
 
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
@@ -28,7 +28,7 @@
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
   --body-font: "Montserrat", sans-serif;
-  --normal-font-size: .938rem;
+  /* --normal-font-size: .938rem; */
 
   /*========== Font weight ==========*/
   --font-regular: 400;
@@ -42,7 +42,7 @@
 /*========== Responsive typography ==========*/
 @media screen and (min-width: 1024px) {
   :root {
-    --normal-font-size: 1rem;
+    --normal-font-size: 1.3rem;
   }
 }
 
@@ -88,8 +88,8 @@ a {
 
 .bsea-title h4{
   font-family: "Khmer-Muol";
-  font-size: 1rem;
-}
+  font-size: 1.2rem;
+} 
 
 /*=============== NAV ===============*/
 .nav {

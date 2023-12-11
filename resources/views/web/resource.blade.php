@@ -56,10 +56,10 @@ display:block; }
 	</div>
 	<div class="blog-single">
 		
-		<div class="single-post-detail">
+		{{-- <div class="single-post-detail"> --}}
 	
 			@foreach ($resources as $resource)
-			<div class="author">
+			{{-- <div class="author"> --}}
 					
 				<div class="author-about">
 
@@ -72,11 +72,12 @@ display:block; }
 					</div>
 					<h4 id="company"><a href="#">{{ $resource->title }}</a></h4>
 					<h4 id="description"><a href="#">{{ $resource->description }}</a></h4>
+					<a href="/download/{{ $resource->filename }}">Download</a>
 					
 				</div>
-			</div>
+			{{-- </div> --}}
 			@endforeach
-		</div>
+		{{-- </div> --}}
 	</div>
 	
 </div>

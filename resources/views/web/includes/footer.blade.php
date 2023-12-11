@@ -2,7 +2,6 @@
 <div class="clearfix"></div>
 <style type="text/css">
 
-a { color:#fff; }
 /* #footer a:hover { color: hsl(0, 0%, 59%); } */
 hr{
     border-top: 1px #d8d6d6 dashed;
@@ -11,6 +10,12 @@ hr{
 }
 .d-flex{
     display: flex;
+}
+
+.btn-link:hover{
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: #d8d6d6;
 }
 
 </style>
@@ -35,23 +40,13 @@ hr{
                 <hr class="hr">
                 <p style="line-height: 24px; color: #fff; margin: 0 0 10px; font-size: 13px; letter-spacing: 0.09px;">{{ $setting->address_line_one }}<br>
                 <!-- {{ $setting->address_line_two }}<br> -->
-                {{ $setting->state }}<br>
-                {{ $setting->city }} {{ $setting->zip }}<br>
+                {{ $setting->state }}
+                {{ $setting->city }} {{ $setting->zip }}
                 {{ $setting->country }}<br>
                 <!-- Fax: {{ $setting->fax }}</p> -->
                 <div class="clearfix visible-xs"><br></div>
             </div>
-            {{-- <div class="col-md-6 col-lg-3"> 
-                <div class="footer-heading">
-                    Social Address
-                </div>
-                <div class="clearfix"></div>
-                <hr class="hr">
-                <div class="d-flex pt-2">
-                    <a class="btn btn-outline-light btn-social" href="{{ $setting->facebook }}"><i class="fab fa-facebook-f"></a>
-                    <a class="btn btn-outline-light btn-social" href="{{ $setting->telegram }}"><i class="fab fa-facebook-f"></a>
-                </div>
-            </div> --}}
+
             <div class="col-md-3">
                 <div class="footer-heading">
                     Company
@@ -59,9 +54,9 @@ hr{
                 <div class="clearfix"></div>
                 <hr class="hr">
                 @foreach($pages as $page)
-                <a href="{{ route('pagePage', $page->page_slug) }}">{{ $page->page_name }}</a><br>
+                <a class="btn-link" href="{{ route('pagePage', $page->page_slug) }}">{{ $page->page_name }}</a><br>
                 @endforeach
-                <a href="{{ route('contactUsPage') }}">Contact Us</a><br>
+                <a class="btn-link" href="{{ route('contactUsPage') }}">Contact Us</a><br>
                 <div class="clearfix visible-xs"><br></div>
             </div>
 
@@ -73,7 +68,7 @@ hr{
                 <hr class="hr">
                 <div class="d-flex pt-2">
                     <a class="btn btn-outline-light btn-social" href="{{ $setting->facebook }}"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-light btn-social" href="{{ $setting->telegram }}"><i class="fab fa-telegram"></i></a>
+                    <a class="btn btn-outline-light btn-social" href="{{ $setting->telegram }}"><i class="fa fa-paper-plane"></i></a>
                 </div>
             </div>
 

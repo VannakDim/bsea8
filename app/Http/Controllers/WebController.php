@@ -142,6 +142,12 @@ class WebController extends Controller {
 		return view('web.resource', compact('resources'));
 	}
 
+
+    public function download($id){
+		return response()->download(get_resource_file_path($id));
+        echo $id;
+    }
+
 	public function comment(Request $request, $post_id) {
 		request()->validate([
 			'comment' => 'required|string|max:2500',

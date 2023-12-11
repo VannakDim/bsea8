@@ -1982,9 +1982,11 @@ footer {
 .footer {background: #339bd3; border-top: 2px #fff solid; color: #fff; padding: 15px 0px; }
 .footer-heading {font-size: 18px; font-weight: bold; color: #fff; text-shadow: none;}
 .footer a {
+    color: #fff;
     line-height: 24px;
     font-size: 13px;
 }
+
 #footer-bottom {background: #7e7e7e; color: #969696; padding: 10px 0px; color: #fff;}
 
 .footer .btn.btn-social:hover {
@@ -2724,7 +2726,7 @@ blockquote:after {
 }
 .author-about {
     display: table-cell;
-    padding-left: 30px;
+    /* padding-left: 30px; */
 }
 .author-about > h4 {
     color: #000;
@@ -4126,7 +4128,7 @@ small {
 /*Single Post Page*/
 .blog-single {
     border:1px solid rgba(0,0,0,0.1);
-    padding: 10px 30px 30px 30px;
+    padding: 20px 15px;
 }
 .post-head {
     float: left;
