@@ -43,6 +43,17 @@ display:block; }
 .jssocials-share-email { 
 display:block; }
 }
+
+#btn-download{
+	padding-right: 10px; 
+	text-align:right
+}
+
+@media screen and (max-width: 1024px) {
+	#btn-download{
+		text-align: left;
+	}
+}
 </style>
 @endsection
 
@@ -60,12 +71,12 @@ display:block; }
 				<div class="col-md-3 company-logo">
 					<img  src="{{ get_resource_thumbnail_url($resource->thumbnail) }}" alt="">
 				</div>
-				<div class="col-md-7">
+				<div class="col-md-6">
 					<h5>{{$resource->title}}</h5>
 					<p>{{$resource->description}}<p>
 				</div>
-				<div class="col-md-2" style="text-align: right">
-					<a href="/download/{{$resource->filename}}"><i class="fa fa-download" aria-hidden="true"></i> Download</a>
+				<div class="col-md-3" id="btn-download">
+					<a class="btn btn-primary" href="/download/{{$resource->filename}}"><i class="fa fa-download" aria-hidden="true"></i> Download</a>
 				</div>
 			</div>
 			@endforeach

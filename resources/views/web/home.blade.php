@@ -12,8 +12,8 @@
 
 	@media screen and (max-width: 1024px) {
 		#owl-demo{
-		margin-top: 45px;
-	}
+			margin-top: 45px;
+		}
 	}
 </style>
 
