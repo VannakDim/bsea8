@@ -58,7 +58,8 @@
 							<!-- <h2>យើងមានបទពិសោធ</h2> -->
 							<h2>WHO WE ARE</h2>
 							<p>{!! \Illuminate\Support\Str::limit($page->page_content,4000,'...') !!}</p>
-							<!-- <a href="{{ route('pagePage', $page->page_slug) }}" class="btn_2">read more</a> -->
+							<div class="btn btn-primary" style="margin-bottom:20px"><a style="color: antiquewhite" href="{{ route('pagePage', $page->page_slug) }}">Read more</a></div>
+							
 						</div>
 					</div>
 				</div>
@@ -67,7 +68,7 @@
 			<div class="hero-app-6 custom-animation3"><img src="web/animate_icon/icon_3.png" alt=""></div>
 		<!-- </section> -->
 		<!-- about part start-->
-
+		<hr>
 		<div class="home-posts-head mt-30">
 			<h4 class="home-posts-cat-title"><a class="cat-3" href="#">What's New</a></h4>
 		</div>
@@ -84,7 +85,7 @@
 
 					<div class="post-detail">
 						<h2>
-							<a href="{{ route('detailsPage', $post->post_slug) }}" title="{{ $post->post_title }}">
+							<a style="color: gray" href="{{ route('detailsPage', $post->post_slug) }}" title="{{ $post->post_title }}">
 								{{ \Illuminate\Support\Str::limit($post->post_title, 44, '...') }}
 							</a>
 						</h2>

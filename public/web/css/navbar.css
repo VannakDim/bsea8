@@ -44,6 +44,9 @@
   :root {
     --normal-font-size: 1.3rem;
   }
+  #banner-caption{
+    font-size: 1.2rem;
+  }
 }
 
 /*=============== BASE ===============*/
@@ -91,6 +94,9 @@ a {
   font-size: 1.2rem;
 } 
 
+#banner-caption{
+  font-size: 1.5rem;
+}
 /*=============== NAV ===============*/
 .nav {
   height: var(--header-height);
@@ -147,7 +153,7 @@ a {
   opacity: 0;
 }
 #logo-img{
-  height: 4rem;
+  height: 60px;
 }
 
 /* Navigation for mobile devices */
@@ -155,6 +161,9 @@ a {
   #logo-img{
     height: 3rem;
     padding: 0 10;
+  }
+  #banner-caption{
+    font-size: 1.2rem;
   }
   .nav__menu {
     position: absolute;
@@ -278,7 +287,7 @@ a {
     padding: 0 10;
   }
   .bsea-title h4{
-    font-size: .7rem;
+    font-size: 1.2rem;
   }
   .container {
     margin-inline: 1rem;

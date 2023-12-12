@@ -1,4 +1,4 @@
-@extends('web.layouts.app')
+@extends('web.layouts.app_no_sidebar')
 
 @section('title', $page->meta_title)
 @section('keywords', $page->meta_keywords)
@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-<div class="col-md-8">
+<div class="col-md-12">
 	<div class="crumb inner-page-crumb">
 		<ul>
 			<li><i class="ti-home"></i><a href="{{ route('homePage') }}">Home</a> / </li>
@@ -27,9 +27,6 @@
 </div>
 @endsection
 
-@section('sidebar')
-@include('web.includes.sidebar')
-@endsection
 
 @section('script')
 @endsection
