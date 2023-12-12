@@ -88,6 +88,9 @@ a {
   box-shadow: 0 2px 16px hsla(220, 32%, 8%, .3);
   z-index: var(--z-fixed);
 }
+.bsea-title{
+  padding-left: 10px;
+}
 
 .bsea-title h4{
   font-family: "Khmer-Muol";
@@ -160,7 +163,7 @@ a {
 @media screen and (max-width: 1118px) {
   #logo-img{
     height: 3rem;
-    padding: 0 10;
+    /* padding: 0 10; */
   }
   #banner-caption{
     font-size: 1.2rem;
@@ -183,6 +186,10 @@ a {
     background-color: var(--black-color);
     padding-top: 1rem;
   }
+  .nav__logo{
+    padding-left: 10px;
+  
+    }
 }
 
 .nav__link {
@@ -298,6 +305,10 @@ a {
   }
   #banner-caption{
     font-size: 1rem;
+  }
+  .nav__logo{
+  padding-left: 10px;
+
   }
 }
 

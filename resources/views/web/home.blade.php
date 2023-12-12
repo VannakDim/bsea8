@@ -5,18 +5,12 @@
 @section('description', $setting->meta_description)
 
 @section('style')
-<!-- <link href="{{ asset('web/css/custom.css') }}" rel="stylesheet">
-<link rel="stylesheet" href="{{ asset('web/css/style.css') }}" type="text/css" /> -->
+
 @endsection
 
-<!-- @foreach($banner as $banner)
-	<img src="{{ get_banner_image_url($banner->image) }}" alt="{{ $banner->title }}" class="img-responsive">
-@endforeach -->
 @section('banner')
 	@php($banner = App\Banner::where('publication_status', 1)->orderBy('id', 'desc')->first())
         @if(!empty($banner))
-        <!-- <img src="{{ get_banner_image_url($banner->image) }}" alt="{{ $banner->title }}" class="img-responsive" style="margin-top: 80px;"> -->
-
 		<div id="owl-demo" class="owl-carousel" style="margin-top: 3rem;">
 
 			<div class="item"><img src="{{ asset('web/banner_image/1687781105.jpg') }}" alt="BSEA"></div>

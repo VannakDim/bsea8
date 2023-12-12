@@ -3,9 +3,7 @@
 
 @section('style')
 <style type="text/css">
-#google_map{
-	margin-bottom: 40px;
-}
+
 </style>
 @endsection
 

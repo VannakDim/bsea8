@@ -19,9 +19,9 @@
         <section>
             <div class="space">
                 <div class="container">
-                        <!-- left section -->
-                        @yield('content')
-                        <!-- /. left section -->
+                    <!-- left section -->
+                    @yield('content')
+                    <!-- /. left section -->
                 </div>
             </div>
         </section>

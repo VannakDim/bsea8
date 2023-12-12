@@ -1,4 +1,4 @@
-@extends('web.layouts.app_no_sidebar')
+@extends('web.layouts.app')
 
 @section('title', $page->meta_title)
 @section('keywords', $page->meta_keywords)
