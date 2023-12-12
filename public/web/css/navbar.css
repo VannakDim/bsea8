@@ -296,6 +296,9 @@ a {
   .nav__link {
     padding-inline: 1rem;
   }
+  #banner-caption{
+    font-size: 1rem;
+  }
 }
 
 
