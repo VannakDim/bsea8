@@ -291,7 +291,6 @@ a {
 @media screen and (max-width: 435px) {
   #logo-img{
     height: 3rem;
-    padding: 0 10;
   }
   .bsea-title h4{
     font-size: 1.2rem;
