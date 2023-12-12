@@ -5,13 +5,24 @@
 @section('description', $setting->meta_description)
 
 @section('style')
+<style>
+	#owl-demo{
+		margin-top: 60px;
+	}
+
+	@media screen and (max-width: 1024px) {
+		#owl-demo{
+		margin-top: 45px;
+	}
+	}
+</style>
 
 @endsection
 
 @section('banner')
 	@php($banner = App\Banner::where('publication_status', 1)->orderBy('id', 'desc')->first())
         @if(!empty($banner))
-		<div id="owl-demo" class="owl-carousel" style="margin-top: 3rem;">
+		<div id="owl-demo" class="owl-carousel">
 
 			<div class="item"><img src="{{ asset('web/banner_image/1687781105.jpg') }}" alt="BSEA"></div>
 			<div class="item"><img src="{{ asset('web/banner_image/043A4046.jpg') }}" alt="BSEA"></div>
@@ -156,8 +167,3 @@
 
     });
     </script>
-<!-- 
-    <script src="{{ asset('web/js/bootstrap-collapse.js') }}"></script>
-    <script src="{{ asset('web/js/bootstrap-transition.js') }}"></script>
-    <script src="{{ asset('web/js/bootstrap-tab.js') }}"></script>
-    <script src="{{ asset('web/js/application.js') }}"></script> -->
