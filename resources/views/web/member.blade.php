@@ -59,12 +59,12 @@ display:block; }
 	<div class="blog-single"> 
 		<div class="row" style="margin-left:0">
 			@foreach ($members as $member)
-				<div class="col-md-6" style="padding-left: 0%">
+				<div class="col-lg-6" style="padding-left: 0%">
 					<div class="team-item">
-						<h4>{{ $member->company }}</h4>
+						<h4 style="color:aliceblue;background: #007bbd; padding:10px 0; border-radius:10px">{{ $member->company }}</h4>
 						<p class="mb-4">{{ $member->address }}</p>
 						@if(!empty($member->company_logo))
-							<img class="img-fluid rounded-circle w-100 mb-4" src="{{ get_member_image_url($member->company_logo) }}" alt="">
+							<img class="img-fluid rounded-circle w-60 mb-4" src="{{ get_member_image_url($member->company_logo) }}" alt="">
 						@endif
 						<p><a id="member-product" href="#">{{ $member->type->title }}</a> &nbsp; </p>
 						<p>
@@ -107,12 +107,14 @@ display:block; }
 		font-weight: bold;
 	}
 	#member-product{
+		border-radius: 5px;
 		background: #cbeaa4;
 		/* color: aliceblue; */
 		padding: 0 5px;
 	}
 	#member-type{
-		background: #ead0a4;
+		border-radius: 5px;
+		background: #10c6b1;
 		color: aliceblue;
 		padding: 0 5px;
 	}

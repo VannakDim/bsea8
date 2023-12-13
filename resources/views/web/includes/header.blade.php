@@ -30,7 +30,7 @@
                 <ul class="dropdown__menu">
                   <li>
                       <a href="{{ route('tagsPage') }}" class="dropdown__link">
-                      <i class="fa fa-tag"></i> Tags
+                        <i class="ri-price-tag-3-line"></i> Tags
                       </a>                          
                   </li>
 
