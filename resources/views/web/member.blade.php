@@ -56,12 +56,12 @@ display:block; }
 	</div>
 
 		
-	<div class="container mb-4">
-		<div class="row">
+	<div class="blog-single"> 
+		<div class="row" style="margin-left:0">
 			@foreach ($members as $member)
-				<div class="col-lg-4 col-md-6" style="padding-left: 0%">
+				<div class="col-md-6" style="padding-left: 0%">
 					<div class="team-item">
-						<h5>{{ $member->company }}</h5>
+						<h4>{{ $member->company }}</h4>
 						<p class="mb-4">{{ $member->address }}</p>
 						@if(!empty($member->company_logo))
 							<img class="img-fluid rounded-circle w-100 mb-4" src="{{ get_member_image_url($member->company_logo) }}" alt="">

@@ -151,7 +151,7 @@
 				</div>
 
 				<div class="form-group{{ $errors->has('product') ? ' has-error' : '' }}">
-					<label for="product" class="col-md-2 control-label">Process Types</label>
+					<label for="product" class="col-md-2 control-label">Produc</label>
 					<div class="col-md-5">
 						<select class="form-control select2-post-tag" name="products[]" multiple="multiple" id="product">
 							<option disabled>Product</option>

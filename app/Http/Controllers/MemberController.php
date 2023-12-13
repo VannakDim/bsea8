@@ -95,9 +95,9 @@ class MemberController extends Controller
             ]);
 
             if (isset($request->products)) {
-                $member->product()->sync($request->products, false);
+                $member->products()->sync($request->products, false); 
             } else {
-                $member->product()->sync(array());
+                $member->products()->sync(array());
             }
 
             if ($request->hasFile('member_image')) {
