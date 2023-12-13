@@ -83,8 +83,9 @@ class ResourceController extends Controller
 
             if ($request->hasFile('resource_file')) {
                 $file = $request->file('resource_file');
-                $file->move(get_resource_file_path(), $file->getClientOriginalName());
-                Resource::find($resource->id)->update(['filename' => $file->getClientOriginalName()]);
+                $filename=time() .'.'. $file->getClientOriginalExtension();
+                $file->move(get_resource_file_path(), $filename);
+                Resource::find($resource->id)->update(['filename' => $filename]);
             }
 
             if ($request->hasFile('thumbnail')) {
