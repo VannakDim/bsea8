@@ -138,7 +138,7 @@ class WebController extends Controller {
 	}
 
 	public function resource() {
-		$resources = Resource::all();
+		$resources = Resource::where(['publication_status' => 1])->orderBy('id', 'desc')->get();
 		return view('web.resource', compact('resources'));
 	}
 

@@ -20,6 +20,12 @@ class ResourceController extends Controller
 		return view('admin.resource.index');
 	}
 
+    public function show($id) {
+		$resource = Resource::with(['user:id,name'])->where('id', $id)
+			->first();
+		return json_encode($resource);
+	}
+
 	public function create() {
 		return view('admin.resource.create');
 	}
@@ -48,9 +54,9 @@ class ResourceController extends Controller
 				return '<a class="user-view-button" role="button" tabindex="0" data-id="' . $resources->user->id . '">' . $resources->user->name . '</a>';})
 			->addColumn('publication_status', function ($resources) {
 				if ($resources->publication_status == 1) {
-					return '<a href="' . route('admin.unpublishedPagesRoute', $resources->id) . '" class="btn btn-success btn-xs btn-flat btn-block" data-toggle="tooltip" data-original-title="Click to Unpublished"><i class="icon fa fa-arrow-down"></i>Published</a>';
+					return '<a href="' . route('admin.unpublishedResourcesRoute', $resources->id) . '" class="btn btn-success btn-xs btn-flat btn-block" data-toggle="tooltip" data-original-title="Click to Unpublished"><i class="icon fa fa-arrow-down"></i>Published</a>';
 				}
-				return '<a href="' . route('admin.publishedPagesRoute', $resources->id) . '" class="btn btn-warning btn-xs btn-flat btn-block" data-toggle="tooltip" data-original-title="Click to Published"><i class="icon fa fa-arrow-up"></i> Unpublished</a>';})
+				return '<a href="' . route('admin.publishedResourcesRoute', $resources->id) . '" class="btn btn-warning btn-xs btn-flat btn-block" data-toggle="tooltip" data-original-title="Click to Published"><i class="icon fa fa-arrow-up"></i> Unpublished</a>';})
 			->addColumn('action', function ($resources) {
 				return '<button class="btn btn-info btn-xs view-button" data-id="' . $resources->id . '" data-toggle="tooltip" data-original-title="View"><i class="fa fa-eye"></i></button> <button class="btn btn-primary btn-xs edit-button" data-id="' . $resources->id . '" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-edit"></i></button> <button class="btn btn-danger btn-xs delete-button" data-id="' . $resources->id . '"data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash"></i></button>';})
 			->addColumn('thumbnail', function ($resource) {
@@ -58,16 +64,16 @@ class ResourceController extends Controller
 					return '<img src="' . get_resource_thumbnail_url($resource->thumbnail) . '" width="60" class="img img-thumbnail img-responsive">';
 				}
 				return '<img src="' . get_resource_thumbnail_url('no_image.jpg') . '" width="60" class="img img-thumbnail img-responsive">';})
-			->rawColumns(['username', 'publication_status', 'action', 'thumbnail'])
+			->rawColumns(['username', 'thumbnail', 'publication_status', 'action'])
 			->setRowId('id')
 			->make(true);
 	}
-
+ 
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|max:250',
-            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240|dimensions:max_width=5000,max_height=3000',
+            'publication_status' => 'required',
         ], [
             'description.required' => 'Caption is required.',
             'resource_file.required' => 'Please choose file to upload.',
@@ -135,5 +141,25 @@ class ResourceController extends Controller
         $background->save($location);
         return $filename;
     }
+
+    public function published($id) {
+		$affected_row = Resource::where('id', $id)
+			->update(['publication_status' => 1]);
+
+		if (!empty($affected_row)) {
+			return redirect()->back()->with('message', 'Published successfully.');
+		}
+		return redirect()->back()->with('exception', 'Operation failed !');
+	}
+
+	public function unpublished($id) {
+		$affected_row = Resource::where('id', $id)
+			->update(['publication_status' => 0]);
+
+		if (!empty($affected_row)) {
+			return redirect()->back()->with('message', 'Unpublished successfully.');
+		}
+		return redirect()->back()->with('exception', 'Operation failed !');
+	}
 
 }

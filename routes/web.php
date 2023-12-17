@@ -123,6 +123,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin'], 'as' => 'a
 	/*** For Resource ***/
 	Route::resource('resources', 'ResourceController');
 	Route::get('/get-resource', ['as' => 'getResource', 'uses' => 'ResourceController@get']);
+	Route::get('/resource/published/{id}', ['as' => 'publishedResourcesRoute', 'uses' => 'ResourceController@published']);
+	Route::get('/resource/unpublished/{id}', ['as' => 'unpublishedResourcesRoute', 'uses' => 'ResourceController@unpublished']);
 
 
 	/*** For Gallery ***/
