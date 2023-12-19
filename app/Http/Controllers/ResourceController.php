@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Resource;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Auth;
 use App\Member;
 use Image;
@@ -110,6 +111,48 @@ class ResourceController extends Controller
         }
         // return Response::json(['errors' => $validator->errors()]);
     }
+
+    // Resource Update
+    public function update(Request $request, $id) {
+		$resource = Resource::find($id);
+
+        $validator = $validator = Validator::make($request->all(), [
+			'title' => 'required|max:250',
+			'description' => 'required|max:250',
+			'page_content' => 'required|string',
+			'publication_status' => 'required',
+		]);
+
+        $resource->title = $request->get('resource_title');
+        $resource->description = $request->get('resource_description');
+        $resource->publication_status = $request->get('publication_status');
+		$affected_row = $resource->save();
+
+        if ($request->hasFile('resource_file')) {
+            $file = $request->file('resource_file');
+            $filename=time() .'.'. $file->getClientOriginalExtension();
+            $file->move(get_resource_file_path(), $filename);
+            Resource::find($resource->id)->update(['filename' => $filename]);
+        }
+
+        if ($request->hasFile('resource_thumbnail')) {
+            $image = $request->file('resource_thumbnail');
+            $file_name = $this->image($resource->id, $image);
+            Resource::find($resource->id)->update(['thumbnail' => $file_name]);
+        }
+
+        if (!empty($affected_row)) {
+            $request->session()->flash('message', 'Resource update successfully.');
+        } else {
+            $request->session()->flash('exception', 'Operation failed !');
+        }
+        return Response::json(['success' => '1']);
+
+		return Response::json(['errors' => $validator->errors()]);
+
+		
+	}
+    // End resource update
 
     public function image($id, $image)
     {

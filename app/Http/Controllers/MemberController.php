@@ -58,7 +58,7 @@ class MemberController extends Controller
                 if (!is_null(is_demo_admin())) {
                     $is_demo = 'disabled';
                 }
-                return '<button class="btn btn-danger btn-xs delete-button" data-id="' . $members->id . '"data-toggle="tooltip" data-original-title="Delete"' . $is_demo . '><i class="fa fa-trash"></i></button>';
+                return '<button class="btn btn-info btn-xs view-button" data-id="' . $members->id . '" data-toggle="tooltip" data-original-title="View"><i class="fa fa-eye"></i></button> <button class="btn btn-primary btn-xs edit-button" data-id="' . $members->id . '" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-edit"></i></button> <button class="btn btn-danger btn-xs delete-button" data-id="' . $members->id . '"data-toggle="tooltip" data-original-title="Delete"' . $is_demo . '><i class="fa fa-trash"></i></button>';
             })
             ->addColumn('company_logo', function ($members) {
                 if (!empty($members->company_logo)) {

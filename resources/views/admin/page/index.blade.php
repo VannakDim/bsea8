@@ -477,8 +477,6 @@
 			var page_id = $('#edit-page-id').val();
 			var url = "{{ route('admin.pages.update', 'page_id') }}";
 			url = url.replace("page_id", page_id);
-			// var page_edit_form = $("#page_edit_form");
-			// var form_data = page_edit_form.serialize();
 			var postData = new FormData($("#page_edit_form")[0]);
 			$( '.page-name-error' ).html( "" );
 			$( '.page-slug-error' ).html( "" );

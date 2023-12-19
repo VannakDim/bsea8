@@ -79,6 +79,7 @@ Version: 1.0
 html,
 
 :root {
+    --baseColor: #3198d3;
     --primary: #00B98E;
     --light: #F3F6F8;
     --dark: #0E2E50;
@@ -726,7 +727,7 @@ ul.demo1 {
     overflow: hidden;
     margin: 0 4px 7px 0;
 }
-.social-login-btn.btn .bf-icon {
+.social-login-btn.btn .bf-icon { 
     vertical-align: top;
     line-height: 34px;
     margin-right: 10px;
@@ -1990,7 +1991,7 @@ footer {
 #footer-bottom {background: #7e7e7e; color: #969696; padding: 10px 0px; color: #fff;}
 
 .footer .btn.btn-social:hover {
-    color: var(--primary);
+    color: var(--baseColor);
     background: white;
 }
 

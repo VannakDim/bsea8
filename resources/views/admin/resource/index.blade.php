@@ -14,17 +14,17 @@
 @endsection
 
 @section('content')
-	<!-- Page header -->
+	<!-- resource header -->
 	<section class="content-header">
 		<h1>
 			RESOURCES FOR FREE
 		</h1>
 		<ol class="breadcrumb">
 			<li><a href="{{ route('admin.dashboardRoute') }}"><i class="fa fa-home"></i> Dashboard</a></li>
-			<li class="active">Page</li>
+			<li class="active">resource</li>
 		</ol>
 	</section>
-	<!-- /.page header -->
+	<!-- /.resource header -->
 
 	<!-- Main content -->
 	<section class="content">
@@ -81,7 +81,7 @@
 							</button>
 						</div>
 					</div>
-					<h4 class="modal-title" id="view-page-name"></h4>
+					<h4 class="modal-title" id="view-resource-name"></h4>
 				</div>
 				<div class="modal-body">
 					<table class="table table-bordered table-striped">
@@ -94,7 +94,7 @@
 								<td id="view-resource-title"></td>
 							</tr>
 							<tr>
-								<td>Page Content</td>
+								<td>Description</td>
 								<td id="view-resource-description"></td>
 							</tr>
 							<tr>
@@ -105,7 +105,7 @@
 								<td>Publication Status</td>
 								<td id="view-publication-status"></td>
 							</tr>
-							
+							 
 						</tbody>
 					</table>
 				</div>
@@ -115,7 +115,68 @@
 			</div>
 		</div>
 	</div>
-	<!-- /.view page modal -->
+	<!-- /.view resource modal -->
+
+	<!-- edit resource modal -->
+	<div id="edit-modal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">
+							<span class="fa-stack fa-sm">
+								<i class="fa fa-square-o fa-stack-2x"></i>
+								<i class="fa fa-edit fa-stack-1x"></i>
+							</span>
+							Edit Resource
+						</h4>
+					</div>
+					<form role="form" id="resource_edit_form" method="post" enctype="multipart/form-data">
+						{{method_field('PATCH')}}
+						{{csrf_field()}}
+						<input type="hidden" name="resource_id" id="edit-resource-id">
+						<div class="modal-body">
+							
+							<div class="form-group">
+								<label>Resource Title</label>
+								<input type="text" name="resource_title" class="form-control" id="edit-resource-title" placeholder="ex: title">
+								<span class="text-danger resource-title-error"></span>
+							</div>
+							<div class="form-group">
+								<label>Description</label>
+								<input type="text" name="resource_description" class="form-control" id="edit-resource-description" placeholder="ex: resource_description">
+								<span class="text-danger resource-description-error"></span>
+							</div>
+							<div class="form-group">
+								<label>Resource File</label>
+								<input type="file" name="resource_file" id="edit-resource-file" class="form-control">
+								<span class="text-danger resource-file-error"></span>
+							</div>
+							<div class="form-group">
+								<label>Thumbnail</label>
+								<input type="file" name="resource_thumbnail" id="edit-resource-thumbnial" class="form-control">
+								<span class="text-danger resource-thumbnail-error"></span>
+							</div>
+							<div class="form-group">
+								<label>Publication Status</label>
+								<select class="form-control" name="publication_status" id="edit-publication-status">
+									<option selected disabled>Select One</option>
+									<option value="1">Published</option>
+									<option value="0">Unpublished</option>
+								</select>
+								<span class="text-danger publication-status-error"></span>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-info btn-flat update-button">Update</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- /.edit resource modal -->
 
 	<!-- view user modal -->
 	<div id="user-view-modal" class="modal fade bs-example-modal-lg print-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
@@ -207,7 +268,7 @@
 	</div>
 	<!-- /.view user modal -->
 
-	<!-- delete page modal -->
+	<!-- delete resource modal -->
 	<div id="delete-modal" class="modal modal-danger fade" id="modal-danger">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -253,6 +314,7 @@
 			get_table_data();
 		});
 
+
 		/** View **/
 		$("#resources-table").on("click", ".view-button", function(){
 			var resource_id = $(this).data("id");
@@ -286,9 +348,9 @@
 		
 		/** Delete **/
 		$("#resources-table").on("click", ".delete-button", function(){
-			var page_id = $(this).data("id");
-			var url = "{{ route('admin.resources.destroy', 'page_id') }}";
-			url = url.replace("page_id", page_id);
+			var resource_id = $(this).data("id");
+			var url = "{{ route('admin.resources.destroy', 'resource_id') }}";
+			url = url.replace("resource_id", resource_id);
 			$('#delete-modal').modal('show');
 			$('#delete_form').attr('action', url);
 		});
@@ -301,7 +363,7 @@
 				buttons: [
 				{ extend: 'copy', exportOptions: { columns: ':visible'}},
 				{ extend: 'print', exportOptions: { columns: ':visible'}},
-				{ extend: 'pdf', orientation: 'landscape', pageSize: 'A4', exportOptions: { columns: ':visible'}},
+				{ extend: 'pdf', orientation: 'landscape', resourceSize: 'A4', exportOptions: { columns: ':visible'}},
 				{ extend: 'csv', exportOptions: { columns: ':visible'}},
 				{ extend: 'colvis', text:'Column'},
 				],
@@ -373,6 +435,68 @@
 						$('#view-status').text('Block');
 					}
 				}});
+		});
+
+		/** Edit **/
+		$("#resources-table").on("click", ".edit-button", function(){
+			var resource_id = $(this).data("id");
+			var url = "{{ route('admin.resources.show', 'resource_id') }}";
+			url = url.replace("resource_id", resource_id);
+			$.ajax({
+				url: url,
+				method: "GET",
+				dataType: "json",
+				success:function(data){
+					$('#edit-modal').modal('show');
+					$('#edit-resource-id').val(data['id']);
+					$('#edit-resource-title').val(data['title']);
+					$('#edit-resource-description').val(data['description']);
+					$('#edit-publication-status').val(data['publication_status']);
+				}});
+		});
+
+		/** Update **/
+		$(".update-button").click(function(){
+			var resource_id = $('#edit-resource-id').val();
+			var url = "{{ route('admin.resources.update', 'resource_id') }}";
+			url = url.replace("resource_id", resource_id);
+
+			var postData = new FormData($("#resource_edit_form")[0]);
+			// $( '.resource-title-error' ).html( "" );
+			// $( '.resource-description-error' ).html( "" );
+			// $( '.resource-file-error' ).html( "" );
+			// $( '.resource-thumbnail-error' ).html( "" );
+			// $( '.publication-status-error' ).html( "" );
+			$.ajax({
+				type:'POST',
+				url: url,
+				processData: false,
+				contentType: false,
+				data : postData,
+				success:function(data) {
+					console.log(data);
+					if(data.errors) {
+						// if(data.errors.resource_title){
+						// 	$( '.resource-title-error' ).html( data.errors.resource_title[0] );
+						// }
+						// if(data.errors.resource_description){
+						// 	$( '.resource-description-error' ).html( data.errors.resource_description[0] );
+						// }
+						// if(data.errors.resource_featured_image){
+						// 	$( '.resource-file-error' ).html( data.errors.resource_file[0] );
+						// }
+						// if(data.errors.resource_featured_image){
+						// 	$( '.resource-thumbnail-error' ).html( data.errors.resource_thumbnail[0] );
+						// }
+						if(data.errors.publication_status){
+							$( '.publication-status-error' ).html( data.errors.publication_status[0] );
+						}
+					}
+					if(data.success) {
+						window.location.href = '{{ route('admin.resources.index') }}';
+					}
+				},
+			});
 		});
 	</script>
 @endsection

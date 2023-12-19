@@ -29,8 +29,6 @@
 			<div class="item"><img src="{{ asset('web/banner_image/f8bd9ba5c0714a1bcf5d73c5092de61e.jpg') }}" alt="BSEA"></div> 
 			
 		</div>
-
-
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -60,11 +58,9 @@
 				<div class="row align-items-center justify-content-center">
 					<div class="col-md-12">
 						<div class="about_text">
-							<!-- <h2>យើងមានបទពិសោធ</h2> -->
 							<h2>WHO WE ARE</h2>
 							<p>{!! \Illuminate\Support\Str::limit($page->page_content,4000,'...') !!}</p>
 							<div class="btn btn-primary" style="margin-bottom:20px"><a style="color: antiquewhite" href="{{ route('pagePage', $page->page_slug) }}">Read more</a></div>
-							
 						</div>
 					</div>
 				</div>
